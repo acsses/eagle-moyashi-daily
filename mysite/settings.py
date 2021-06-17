@@ -25,7 +25,7 @@ SECRET_KEY = '4$m_i51a)8!v#b6r^)7!v!88!j92bmw-4t*j=g3n4_ifwx4c(p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["eagle-moyashi-daily.herokuapp.com"]
+ALLOWED_HOSTS = ['eagle-moyashi-daily.herokuapp.com',"eagle-moyashi-daily.herokuapp.com",'https://eagle-moyashi-daily.herokuapp.com/']
 
 
 # Application definition
