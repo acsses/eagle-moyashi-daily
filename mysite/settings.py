@@ -136,7 +136,7 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
+if DEBUG==False:
     import django_heroku
     django_heroku.settings(locals())
 
