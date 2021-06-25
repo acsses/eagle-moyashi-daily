@@ -202,7 +202,7 @@
         <a href="{% url 'link' blog_title=post.title %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
         <img src="{% static post.header_img %}" alt="" style="width: 90%;height: 300px;margin-top: 10px;margin-bottom: 10px;border-radius: 15px;object-fit: cover;">
         <div style="display: flex;width: 90%;height: 60px;">
-            <h1 style="color: #ffffff;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;font-size: 50px;margin: 0;">{{ post.title }}</h1>
+            <h1 style="color: #ffffff;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;">{{ post.title }}</h1>
             <div style="flex-basis: 50%;">
               <div style="height: 30%;"></div>
               <p style="color: #5b5b5b;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;width: 100%;">{{ post.created_date }}</p>
