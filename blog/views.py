@@ -10,7 +10,7 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def article(request,pk):
-    post = Post.objects.filter(title=pk,published_date__lte=timezone.now())[0]
+    post = Post.objects.filter(id_url=pk,published_date__lte=timezone.now())[0]
     post.image_set()
     try:
         try:
