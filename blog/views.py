@@ -11,6 +11,7 @@ def post_list(request):
 
 def article(request,pk):
     post = Post.objects.filter(title=pk,published_date__lte=timezone.now())[0]
+    post.image_set()
     try:
         try:
             prev = post.get_previous_by_created_date()

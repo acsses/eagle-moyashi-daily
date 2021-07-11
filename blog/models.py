@@ -5,6 +5,8 @@ from django.utils import timezone
 from bs4 import BeautifulSoup
 from django.templatetags.static import static
 import os
+from PIL import Image
+
 
 
 class Post(models.Model):
@@ -17,10 +19,18 @@ class Post(models.Model):
 
     def publish(self):
         self.published_date = timezone.now()
+        img=Image.open(os.getcwd()+"/blog/static"+"/"+self.header_img)
+        img.resize((3000,2000))
+        img.save(os.getcwd()+"/blog/static"+"/"+self.header_img)
         self.save()
 
     def __str__(self):
         return self.title
+
+    def image_set(self):
+        img=Image.open(os.getcwd()+"/blog/static"+"/"+self.header_img)
+        img.resize((3000,2000))
+        img.save(os.getcwd()+"/blog/static"+"/"+self.header_img)
     
     def lead(self):
         text=""
