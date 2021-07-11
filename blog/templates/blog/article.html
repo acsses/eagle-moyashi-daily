@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60c211546bde760011ce495b&product=inline-share-buttons" async="async"></script>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="Twitter:site" content="@night_moyashi">
-    <meta name="og:url" content="https://eagle-moyashi-daily.herokuapp.com/{{ post.title }}/">
+    <meta name="og:url" content="https://eagle-moyashi-daily.herokuapp.com/{{post.title|urlencode}}/">
     <meta name="og:title" content="{{ post.title }}">
     <meta name="og:description" content="{{ post.lead }}">
     <meta name="og:image" content="https://eagle-moyashi-daily.herokuapp.com{% static post.header_img %}">
