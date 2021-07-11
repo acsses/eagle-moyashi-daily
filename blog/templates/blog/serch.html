@@ -123,7 +123,7 @@
     </div>
     {% for post in posts %}
     <div style="text-align: center;margin: auto;position: relative"class="flexible can_hover">
-        <a href="{% url 'link' blog_title=post.title %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
+        <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
         <img src="{% static post.header_img %}" alt="" style="width: 90%;height: 300px;margin-top: 10px;margin-bottom: 10px;border-radius: 15px;object-fit: cover;">
         <div style="display: flex;width: 90%;height: 60px;">
             <h1 style="color: #ffffff;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;font-size: 50px;margin: 0;">{{ post.title }}</h1>
