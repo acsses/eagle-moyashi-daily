@@ -29,6 +29,7 @@ class Post(models.Model):
 
     def image_set(self):
         img=Image.open(os.getcwd()+"/blog/static"+"/"+self.header_img)
+        print("hi")
         img.resize((3000,2000))
         img.save(os.getcwd()+"/blog/static"+"/"+self.header_img)
     
