@@ -10,7 +10,7 @@ from PIL import Image
 
 
 class Post(models.Model):
-    id_url=models.CharField(max_length=200)
+    id_url=models.CharField(max_length=100)
     title = models.CharField(max_length=200)
     header_img = models.TextField()
     text = models.TextField()
