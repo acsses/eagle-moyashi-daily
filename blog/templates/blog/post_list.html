@@ -214,7 +214,6 @@
     <div style="text-align: center;margin: auto;position: relative"class="flexible can_hover">
         <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;"></a>
         <img src="{% static post.header_img %}" alt="" style="width: 90%;height: 300px;margin-top: 10px;margin-bottom: 10px;border-radius: 15px;object-fit: cover;">
-        <div style="display: block;width: 90%;height: 60px;margin-bottom: 10px;">
             <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;"class="change">{{ post.title }}</h1>
             <div style="flex-basis: 50%;">
               <div style="height: 20px;"></div>
@@ -224,7 +223,6 @@
               <div style="height: 20px;">
               <p style="color: #5b5b5b;font-family: 'Noto Sans JP', sans-serif;text-align: left;flex-basis: 50%;margin-left: 10%;word-break: break-all;">{{ post.lead }}</p>
             </div>
-        </div>
       </div>
     </div>
     <div style="height: 100px;"></div>
