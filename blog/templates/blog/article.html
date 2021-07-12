@@ -46,6 +46,10 @@
         }
       }
       @media screen and (max-width: 800px){
+        .date{
+          font-size: 10px;
+          text-align: center;
+        }
         .title{
           font-size: 20px;
         }
@@ -229,7 +233,7 @@
       <div style="flex-basis: 50%;"class="press">
         <div style="display: flex;margin-left: 20px;"class="press_in_left">
           <div style="width: 50px;"></div>
-          <p style="font-size: 20px;line-height:0;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="title">{{ post.created_date }}</p>
+          <p style="font-size: 20px;line-height:0;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="date">{{ post.created_date }}</p>
         </div>
         <div style="display: flex;margin-left: 20px;"class="press_in_right">
           <div>
