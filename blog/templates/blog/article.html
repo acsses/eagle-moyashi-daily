@@ -20,6 +20,11 @@
 <body style="background-color: #505050;">
     <style>
       @media screen and (min-width: 800px){
+        .icon{
+          width: 40px;
+          height: 40px;
+          border-radius:20px;
+        }
         .date{
           font-size: 20px;
         }
@@ -49,6 +54,11 @@
         }
       }
       @media screen and (max-width: 800px){
+        .icon{
+          width: 20px;
+          height: 20px;
+          border-radius:10px;
+        }
         .date{
           font-size: 10px;
           overflow-wrap: break-word;
@@ -243,7 +253,7 @@
         </div>
         <div style="display: flex;margin-left: 20px;"class="press_in_right">
           <div>
-            <img src="{% static 'icon.jpg' %}" alt=""style="height:40px;width:40px;border-radius:20px;margin:0;">
+            <img src="{% static 'icon.jpg' %}" alt=""style="margin:0;"class="icon">
           </div>
           <p style="font-size: 20px;line-height:0;color: #ffffff;margin-left: 10px;font-family: 'Noto Sans JP', sans-serif;">Eagle moyashi</p>
         </div>
