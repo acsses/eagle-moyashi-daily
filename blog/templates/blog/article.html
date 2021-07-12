@@ -303,7 +303,7 @@
       {% else %}
       <div style="flex-basis: 50%;"id="wide_in_before"class="hover_can">
         <p style="color: #6b6b6b;line-height:0;font-family: 'Noto Sans JP', sans-serif;height: 30px;font-size: 25px;text-align: left; margin-left: 30px;margin-top: 30px;vertical-align: middle;">prev....</p>
-        <a href="{% url 'link' blog_title=prev.title %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
+        <a href="{% url 'link' blog_title=prev.id_url %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
         <h1 style="line-height:0;font-family: 'Noto Sans JP', sans-serif;height: 50px;text-align: right;margin-right: 20px;" class="chiled">{{ prev.title }}</h1>
       </div>
       {% endif %}
@@ -315,7 +315,7 @@
       {% else %}
       <div style="flex-basis: 50%;position: relative;"id="wide_in_after"class="hover_can">
         <p style="color: #6b6b6b;line-height:0;font-family: 'Noto Sans JP', sans-serif;height: 30px;font-size: 25px;text-align: left; margin-left: 20px;margin-top: 30px;">Next....</p>
-        <a href="{% url 'link' blog_title=next.title %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
+        <a href="{% url 'link' blog_title=next.id_url %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
         <h1 style="line-height:0;font-family: 'Noto Sans JP', sans-serif;height: 50px;text-align: left; margin-left: 20px;" class="chiled">{{ next.title }}</h1>
       </div>
       {% endif %}
