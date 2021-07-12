@@ -54,7 +54,7 @@
           overflow-wrap: break-word;
         }
         .title{
-          font-size: 20px;
+          font-size: 22px;
           text-align: center;
           margin: auto;
           height: 20px;
@@ -239,7 +239,7 @@
       <div style="flex-basis: 50%;"class="press">
         <div style="display: flex;margin-left: 20px;"class="press_in_left">
           <div style="width: 50px;"></div>
-          <p style="line-height:0;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="date">{{ post.created_date }}</p>
+          <p style="line-height:0;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="date">{{ post.created_date|date:"Y m d" }}</p>
         </div>
         <div style="display: flex;margin-left: 20px;"class="press_in_right">
           <div>
