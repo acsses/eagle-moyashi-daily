@@ -42,7 +42,7 @@ class Post(models.Model):
             soup = BeautifulSoup(f, "html.parser")
             for sentence in soup.find_all("p"):
                 text=text+sentence.text
-                if len(text)>225:
+                if len(text)>110:
                     break
             self.lead=text
         except FileNotFoundError:
