@@ -7,8 +7,6 @@ from django.templatetags.static import static
 import os
 from PIL import Image
 
-
-
 class Post(models.Model):
     id_url=models.CharField(max_length=100)
     title = models.CharField(max_length=200)

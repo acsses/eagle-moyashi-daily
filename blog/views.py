@@ -2,6 +2,9 @@ from django.db import models
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
+from django.contrib.auth.decorators import user_passes_test
+from django.core.files.storage import FileSystemStorage
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -39,3 +42,18 @@ def serch(request):
         post.lead()
 
     return render(request, 'blog/serch.html', {'posts': posts,'serch_word' : serch})
+
+def file(request):
+    if request.method == 'POST' and request.FILES['file']:
+        myfile = request.FILES['file']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+
+@user_passes_test(lambda u: u.is_superuser,login_url='/admin/login/?next=/add_page/')
+def add_page(request):
+    post = Post.objects.all()
+    id=len(post)+1
+    print(request)
+    return render(request,'blog/add_page.html',{'id':id})
+

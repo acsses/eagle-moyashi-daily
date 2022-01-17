@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js'></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'icon.ico' %}">
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          skipStartupTypeset: true, // ページロード時のmathjax発動禁止
+          extensions: ["tex2jax.js"],
+          jax: ["input/TeX", "output/HTML-CSS"],
+          tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true
+          },
+          "HTML-CSS": {
+            availableFonts: ["TeX"]
+          }
+        });
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input type="hidden" value="{{ id }}"></form>
+    <header id="header">
+        <div id="form" style="display: flex;">
+            <input type="text"id="input">
+            <input type="button" value="save&publish" id="submit">
+        </div>
+    </header>
+    <div style="display: flex;height: 92vh;">
+        <div style="flex-basis: 15%; display: flex;flex-direction: column;align-items: flex-end;" id="files">
+            <label id="file_upload" style="flex-basis: 5%;margin:0;margin-top: 10px;">
+                <form method=“POST” enctype=“multipart/form-data”>
+                    <input type="file" name="header"style="display: none" >header image
+                </form>
+            </label>
+            <div style="display: flex;flex-direction: row;"style="flex-basis: 90%;">
+            </div>
+            <label id="file_upload" style="flex-basis: 5%;">
+                <form method=“POST” enctype=“multipart/form-data” action="{% url 'file' %}">
+                    {% csrf_token %}
+                    <input type="file" name="file"style="display: none" >file uploads
+                </form>
+            </label>
+        </div>
+        <div style="display: flex;flex-basis: 85%;">
+            <div id="editor"style="height: 100%;"></div>
+            <div id="show"style="height: 100%;"></div>
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
