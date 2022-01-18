@@ -30,13 +30,19 @@
             availableFonts: ["TeX"]
           }
         });
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
     <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Document</title>
 </head>
 <body>
+    <script>
+        function func_1(){
+          console.log(this.nextElementSibling)
+          this.nextElementSibling.value=editor.getValue()
+        }
+    </script>
     <input type="hidden" value="{{ id }}"></form>
     <header id="header">
         <div id="form" style="display: flex;">
@@ -51,12 +57,12 @@
                     <input type="file" name="header"style="display: none" >header image
                 </form>
             </label>
-            <div style="display: flex;flex-direction: row;"style="flex-basis: 90%;">
+            <div style="display: flex;flex-direction: column;flex-basis: 80%;width:100%;" id="file_colum">
             </div>
             <label id="file_upload" style="flex-basis: 5%;">
-                <form method=“POST” enctype=“multipart/form-data” action="{% url 'file' %}">
+                <form enctype="multipart/form-data" method='post' action="">
                     {% csrf_token %}
-                    <input type="file" name="file"style="display: none" >file uploads
+                    <input type="file" name="file" id="images" style="display: none;" multiple/>image upload
                 </form>
             </label>
         </div>

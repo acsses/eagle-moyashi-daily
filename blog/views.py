@@ -4,6 +4,7 @@ from django.utils import timezone
 from .models import Post
 from django.contrib.auth.decorators import user_passes_test
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
 
 
 def post_list(request):
@@ -44,16 +45,23 @@ def serch(request):
     return render(request, 'blog/serch.html', {'posts': posts,'serch_word' : serch})
 
 def file(request):
-    if request.method == 'POST' and request.FILES['file']:
-        myfile = request.FILES['file']
+    print(request.FILES)
+    if request.method == 'POST':
+        myfile = request.FILES.get('file')
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
+        return render(request,'blog/add_page.html')
 
 @user_passes_test(lambda u: u.is_superuser,login_url='/admin/login/?next=/add_page/')
 def add_page(request):
     post = Post.objects.all()
     id=len(post)+1
-    print(request)
+    if request.method == 'POST':
+        print(request.FILES)
+        myfile = request.FILES["file"]
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
     return render(request,'blog/add_page.html',{'id':id})
 

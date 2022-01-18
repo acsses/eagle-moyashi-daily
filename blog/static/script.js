@@ -6,7 +6,32 @@ editor.getSession().setMode("ace/mode/html");
 editor.getSession().setUseWrapMode(true);
 editor.getSession().setTabSize(2);
 editor.getSession().setMode("ace/mode/markdown");
-console.log(marked)
+var files=document.getElementById("images")
+var file_colum=document.getElementById("file_colum")
+files.addEventListener('change',()=>{
+  file_colum.innerHTML=""
+  for (let i = 0; i < files.files.length; i++) {
+    file_list=document.createElement('h3')
+    file_list.textContent=files.files[i].name
+    file_list.classList.add("filelist")
+    file_colum.appendChild(file_list)
+  }
+})
+console.log(files)
+function f(file,parent){
+  reader = new FileReader();
+  var img = document.createElement("img");
+  reader.onload = function (e) {
+    var imageUrl = e.target.result; // URLはevent.target.resultで呼び出せる
+    var img = document.createElement("img"); // img要素を作成
+    img.classList.add("img")
+    img.src = imageUrl; // URLをimg要素にセット
+    img.alt=file.name
+    parent.innerHTML=""
+    parent.appendChild(img); // #previewの中に追加
+  }
+  reader.readAsDataURL(file);
+}
 editor.on('change',()=>{
   var ele=document.getElementById("show")
   ele.innerHTML =""
@@ -68,6 +93,14 @@ editor.on('change',()=>{
   }
   var img_list=ele.getElementsByTagName("img")
   for(var img of img_list){
+    check_url=img.src.split("/")[img.src.split("/").length-1]
+    for (let i = 0; i < files.files.length; i++) {
+      console.log(files.files[i].name)
+      console.log(img.src)
+      if(check_url==files.files[i].name){
+        f(files.files[i],img.parentNode)
+      }
+    }
     img.classList.add("img")
   }
   var code_list=ele.getElementsByTagName("code")
