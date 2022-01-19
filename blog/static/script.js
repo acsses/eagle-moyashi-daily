@@ -8,6 +8,15 @@ editor.getSession().setTabSize(2);
 editor.getSession().setMode("ace/mode/markdown");
 var files=document.getElementById("images")
 var file_colum=document.getElementById("file_colum")
+var header_img=document.getElementById('header_img')
+var header_file=document.getElementById('header_file')
+var title=document.getElementById('input')
+var ele=document.getElementById("show")
+var id=document.getElementById('id')
+header_file.addEventListener('change',()=>{
+  console.log(this.files)
+  f(header_file.files[0],header_img)
+})
 files.addEventListener('change',()=>{
   file_colum.innerHTML=""
   for (let i = 0; i < files.files.length; i++) {
@@ -37,7 +46,6 @@ editor.on('change',()=>{
   ele.innerHTML =""
   var i=false
   ele.innerHTML = marked(editor.getValue())
-  console.log(ele.innerHTML)
   var h1_list=ele.getElementsByTagName("h1")
   for(var h1 of h1_list){
     h1.classList.add("font")
@@ -116,3 +124,23 @@ editor.on('change',()=>{
   MathJax.Hub.Configured();
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
 })
+
+function func_submit(){
+  var fd = new FormData();
+  fd.append("header_file",header_file.files[0])
+  for (let i = 0; i < files.files.length; i++) {
+    fd.append("images",files.files[i])
+  }
+  fd.append("title",title.value)
+  var imgs=ele.getElementsByTagName("img")
+  for(var image of imgs){
+    if(image.hasAttribute("alt")){
+      image.src="/media/"+image.alt
+    }
+  }
+  fd.append("inside",editor.getValue())
+  fd.append("id",id.value)
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://127.0.0.1:8000/new_page/");
+  xhr.send(fd);
+}

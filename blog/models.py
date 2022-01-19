@@ -27,7 +27,7 @@ class Post(models.Model):
         return self.title
 
     def image_set(self):
-        img=Image.open(os.getcwd()+"/blog/static"+"/"+self.header_img)
+        img=Image.open(os.getcwd()+"/media"+"/"+self.header_img)
         print("hi")
         img.resize((3000,2000))
         img.save(os.getcwd()+"/blog/static"+"/"+self.header_img)
@@ -36,7 +36,7 @@ class Post(models.Model):
         text=""
         try:
             print(os.getcwd())
-            f=open(os.getcwd()+"/blog/static"+"/"+self.text)
+            f=self.text
             soup = BeautifulSoup(f, "html.parser")
             for sentence in soup.find_all("p"):
                 text=text+sentence.text

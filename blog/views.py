@@ -1,10 +1,13 @@
 from django.db import models
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.utils import timezone
 from .models import Post
 from django.contrib.auth.decorators import user_passes_test
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import hashlib
+from datetime import datetime
 
 
 def post_list(request):
@@ -45,13 +48,29 @@ def serch(request):
     return render(request, 'blog/serch.html', {'posts': posts,'serch_word' : serch})
 
 def file(request):
-    print(request.FILES)
     if request.method == 'POST':
         myfile = request.FILES.get('file')
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
         return render(request,'blog/add_page.html')
+
+@csrf_exempt
+def new_page(request):
+    headerfile=request.FILES["header_file"]
+    fs = FileSystemStorage()
+    fs.save(headerfile.name, headerfile)
+    for f in request.FILES.getlist("images"):
+        fs.save(f.name, f)
+    title=request.POST['title']
+    text=request.POST['inside']
+    id=hashlib.md5(title.encode()).hexdigest()
+    if len(Post.objects.filter(id_url=id))!=0:
+        print(type(id))
+        id=id+str(len(Post.objects.filter(id_url=id)))
+    Post.objects.create(id_url=id, title=title, text=text,header_img = headerfile.name,published_date=datetime.now())
+    print(Post.objects.all())
+    return redirect('post_list')
 
 @user_passes_test(lambda u: u.is_superuser,login_url='/admin/login/?next=/add_page/')
 def add_page(request):

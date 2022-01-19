@@ -8,6 +8,7 @@ urlpatterns = [
     path('serch/',views.serch,name='serch'),
     path('file/', views.file, name='file'),
     path('add_page/', views.add_page, name='add_page'),
+    path('new_page/',views.new_page,name='new_page'),
     path('<str:pk>/',views.article,name='detail'),
     path('<str:blog_title>/', views.article, name='link'),
 ]

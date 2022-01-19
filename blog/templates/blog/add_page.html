@@ -30,34 +30,29 @@
             availableFonts: ["TeX"]
           }
         });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
     <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Document</title>
 </head>
 <body>
-    <script>
-        function func_1(){
-          console.log(this.nextElementSibling)
-          this.nextElementSibling.value=editor.getValue()
-        }
-    </script>
-    <input type="hidden" value="{{ id }}"></form>
+    <input type="hidden" value="{{ id }}" id="id"></form>
     <header id="header">
         <div id="form" style="display: flex;">
             <input type="text"id="input">
-            <input type="button" value="save&publish" id="submit">
+            <input type="button" value="save&publish" id="submit" onclick="func_submit()">
         </div>
     </header>
     <div style="display: flex;height: 92vh;">
         <div style="flex-basis: 15%; display: flex;flex-direction: column;align-items: flex-end;" id="files">
             <label id="file_upload" style="flex-basis: 5%;margin:0;margin-top: 10px;">
                 <form method=“POST” enctype=“multipart/form-data”>
-                    <input type="file" name="header"style="display: none" >header image
+                    {% csrf_token %}
+                    <input type="file" name="header"style="display: none" id="header_file" >header image
                 </form>
             </label>
-            <div style="display: flex;flex-direction: column;flex-basis: 80%;width:100%;" id="file_colum">
+            <div style="display: flex;flex-direction: column;flex-basis: 80%;width:100%;overflow: scroll;"id="file_colum">
             </div>
             <label id="file_upload" style="flex-basis: 5%;">
                 <form enctype="multipart/form-data" method='post' action="">
@@ -68,7 +63,10 @@
         </div>
         <div style="display: flex;flex-basis: 85%;">
             <div id="editor"style="height: 100%;"></div>
-            <div id="show"style="height: 100%;"></div>
+            <div id="show_all"style="height: 100%;">
+                <div id="header_img" style="width: 100%;"></div>
+                <div id="show"></div>
+            </div>
         </div>
     </div>
     <script src="{% static 'script.js' %}"></script>
