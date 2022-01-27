@@ -76,6 +76,7 @@ sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
 })
 MathJax.Hub.Configured();
 MathJax.Hub.Queue(["Typeset", MathJax.Hub, sub])
+
 function func1() {
   S=sub.contentWindow.document.body.scrollHeight*sub.contentWindow.document.body.scrollWidth;
   delta=S/(screen.width*0.7)-sub.contentWindow.document.body.scrollHeigh

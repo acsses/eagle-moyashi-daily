@@ -202,46 +202,6 @@
         sub.innerHTML=marked(hidden.value)
         MathJax.Hub.Configured();
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, sub]);
-
-        function func1() {
-          S=sub.contentWindow.document.body.scrollHeight*sub.contentWindow.document.body.scrollWidth;
-          delta=S/(screen.width*0.7)-sub.contentWindow.document.body.scrollHeight
-
-          console.log(delta)
-          if(delta<0){
-            delta=0
-          }
-          sub.style.height = sub.contentWindow.document.body.scrollHeight+delta+50+ "px";
-        }
-        function func2() {
-
-          overwrap.style.display = "block";
-          document.getElementById('input').focus();
-        }
-        function func3(){
-          overwrap.style.display = "none";
-        }
-        function func4(){
-          textbox = document.getElementById("input")
-          text=textbox.value
-          window.location.href = 'https://eagle-moyashi-daily.herokuapp.com/?serch='+text;
-        }
-        function func5(){
-          console.log("who")
-          text = document.getElementsByClassName("chiled").textContent;
-          if(text=="None"){
-            console.log("hi")
-            document.getElementById("wide_in_before").classList.remove("hover_can");
-            document.getElementById("link").setAttribute('href', "");
-          }
-        }
-        function func6(){
-          text = document.getElementsByClassName("chiled").textContent;
-          if(text=="None"){
-            document.getElementById("wide_in_after").classList.remove("hover_can");
-            document.getElementById("link").setAttribute('href', "");
-          }
-        }
       </script>
 </body>
 </html>
