@@ -136,7 +136,7 @@ function func_submit(){
   for(var image of imgs){
     console.log(image.getAttribute('alt'))
     if(!(image.getAttribute('alt')=="image")){
-      image.src="/media/"+image.alt
+      image.src="/media/"+image.getAttribute('alt')
     }
   }
   fd.append("inside",editor.getValue())
