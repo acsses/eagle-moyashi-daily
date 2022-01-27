@@ -60,7 +60,6 @@ for(var img of img_list){
   console.log(img.src)
   check_url=img.src.split("/")[img.src.split("/").length-1]
   img.src= "{% static '"+check_url+"' %}"
-  img.src="/media/"+check_url
   img.classList.add("img")
 }
 var code_list=sub.getElementsByTagName("code")
