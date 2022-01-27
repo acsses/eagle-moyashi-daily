@@ -14,7 +14,6 @@ var title=document.getElementById('input')
 var ele=document.getElementById("show")
 var id=document.getElementById('id')
 header_file.addEventListener('change',()=>{
-  console.log(this.files)
   f(header_file.files[0],header_img)
 })
 files.addEventListener('change',()=>{
@@ -26,7 +25,6 @@ files.addEventListener('change',()=>{
     file_colum.appendChild(file_list)
   }
 })
-console.log(files)
 function f(file,parent){
   reader = new FileReader();
   var img = document.createElement("img");
@@ -103,7 +101,6 @@ editor.on('change',()=>{
   for(var img of img_list){
     check_url=img.src.split("/")[img.src.split("/").length-1]
     for (let i = 0; i < files.files.length; i++) {
-      console.log(files.files[i].name)
       console.log(img.src)
       if(check_url==files.files[i].name){
         f(files.files[i],img.parentNode)
@@ -120,6 +117,9 @@ editor.on('change',()=>{
     block.parentNode.classList.remove("font_code")
     block.classList.remove("font_code")
     hljs.highlightBlock(block)
+    block.parentNode.classList.add("font_code")
+    block.classList.add("font_code")
+
   })
   MathJax.Hub.Configured();
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
@@ -134,13 +134,14 @@ function func_submit(){
   fd.append("title",title.value)
   var imgs=ele.getElementsByTagName("img")
   for(var image of imgs){
-    if(image.hasAttribute("alt")){
+    console.log(image.getAttribute('alt'))
+    if(!(image.getAttribute('alt')=="image")){
       image.src="/media/"+image.alt
     }
   }
   fd.append("inside",editor.getValue())
   fd.append("id",id.value)
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://127.0.0.1:8000/new_page/");
+  xhr.open("POST", "https://eagle-moyashi-daily.herokuapp.com/new_page/");
   xhr.send(fd);
 }

@@ -1,0 +1,86 @@
+.twitter_icon:hover path{
+  fill: #009bf5;
+  transition: 0.25s;
+}
+.facebook_icon:hover path{
+  fill: #3e5db1;
+  transition: 0.25s;
+}
+.linkedin_icon:hover path{
+  fill: #0070b5;
+  transition: 0.25s;
+}
+.pinterest_icon:hover path{
+  fill: #f10000;
+  transition: 0.25s;
+}
+@media screen and (min-width: 801px){
+    .change{
+      font-size: 3vw;
+    }
+    .flexible{
+        width: 50%;
+    }
+    .min{
+        display: none;
+    }
+    .max{
+        display: block;
+    }
+    .max_flex{
+        display: flex;
+    }
+    .icon{
+        width: 200px;
+        height: 200px;
+    }
+    .icon_wrap{
+        margin-right: 100px;
+    }
+}
+@media screen and (max-width: 801px){
+  .change{
+      font-size: 8vw;
+    }
+    .flexible{
+        width: 100%;
+    }
+    .min{
+        display: block;
+    }
+    .max_flex{
+        display: none;
+    }
+    .max{
+        display: none;
+    }
+    .icon{
+        width: 100px;
+        height: 100px;
+    }
+    .icon_wrap{
+        margin-right: 20px;
+    }
+}
+.can_hover:hover{
+    box-shadow: 0px 0px 4px;
+    border-top: 4px solid #00c6d4;
+    border-bottom:4px solid #00c6d4;
+    background-color: #2e3033;
+    transition: 0.25s;
+}
+.can_hover:hover h1{
+    color: #00c6d4;
+    transition: 0.25s;
+}
+.can_hover{
+    border-top: 4px solid #444444;
+    border-bottom: 4px solid #444444;
+}
+.can_hover h1{
+    color: #ffffff;
+}
+.close:hover path{
+  fill: #232831;
+  transition: 0.25s;
+}

@@ -87,7 +87,7 @@ body{
     overflow: scroll;
     flex-basis: 50%;
     height: 90vh;
-    background-color: #25261f;
+    background-color: #2e3033;
 }
 .font{
     color: white;
@@ -172,6 +172,7 @@ body{
     margin: auto;
     width: 35vw;
     color: white;
+    text-align: left !important;
 }
 .hljs {
     --base:    #fafafa;

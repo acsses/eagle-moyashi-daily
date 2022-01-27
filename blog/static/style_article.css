@@ -82,9 +82,10 @@
     margin: auto;
     width: 35vw;
     color: white;
+    text-align: left !important;
 }
 .hljs {
-    --base:    #fafafa;
+    --base:    #645e5e;
     --mono-1:  #383a42;
     --mono-2:  #686b77;
     --mono-3:  #a0a1a7;

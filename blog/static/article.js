@@ -69,6 +69,8 @@ sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
   block.parentNode.classList.remove("font_code")
   block.classList.remove("font_code")
   hljs.highlightBlock(block)
+  block.parentNode.classList.add("font_code")
+  block.classList.add("font_code")
 })
 MathJax.Hub.Configured();
 MathJax.Hub.Queue(["Typeset", MathJax.Hub, sub])
