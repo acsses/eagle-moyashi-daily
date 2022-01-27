@@ -57,8 +57,9 @@ for(var th of th_list){
 }
 var img_list=sub.getElementsByTagName("img")
 for(var img of img_list){
-  console.log(img.getAttribute('alt'))
-  img.src="/media/"+img.getAttribute('alt')
+  console.log(img.src)
+  check_url=img.src.split("/")[img.src.split("/").length-1]
+  img.src="/media/"+check_url
   img.classList.add("img")
 }
 var code_list=sub.getElementsByTagName("code")
