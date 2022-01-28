@@ -8,10 +8,12 @@
     font-size: 20px;
   }
   .title{
+    font-size: 75px;
     text-align: center;
     margin-right: 20px;
     height: 20px;
     line-height: 60px;
+    border-bottom: #807f7f solid 2px;
   }
   .flexible{
     width: 70%;
@@ -44,11 +46,12 @@
     text-align: right;
   }
   .title{
-    font-size: 6vw;
+    font-size: 75px;
     text-align: center;
     margin: auto;
     margin-top: 10px;
     height: 6vw;
+    border-bottom: #807f7f solid 2px;
   }
   .flexible{
     width: 85%;
@@ -73,11 +76,9 @@
 }
 .press_in_right {
   flex-basis: 50%;
-  border-left: #5b5b5b solid 1px;
 }
 .press_in_left{
   justify-content: flex-end;
-  border-right: #5b5b5b solid 1px;
 }
 .press_in_left p{
   text-align: right;
