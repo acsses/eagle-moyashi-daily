@@ -16,9 +16,6 @@
   .flexible{
     width: 70%;
   }
-  #wide{
-    display: flex;
-  }
   #wide_in_before{
     border-right: 1px solid #5b5b5b;
     border-top-left-radius: 15px;
@@ -56,9 +53,7 @@
   .flexible{
     width: 85%;
   }
-  #wide{
-    display: block;
-  }
+  
   #wide_in_before{
     border-bottom: 1px solid #5b5b5b;
   }
@@ -91,6 +86,9 @@
     flex-basis: 50%;
     display: block;
   }
+}
+#wide{
+  display: block;
 }
 .press{
   display: flex;
