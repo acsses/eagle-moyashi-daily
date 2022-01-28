@@ -78,3 +78,40 @@
     color: #00c6d4;
     transition: 0.25s;
 }
+.overwrap_animation{
+    animation-name:OverWrapAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+}
+@keyframes OverWrapAnime{
+  0%{
+    opacity: 0;
+    height: 0vh;
+    background: #646464cc;
+  }
+
+  100%{
+    opacity: 0.8;
+    height: 100vh;
+    background: #646464cc;
+  }
+}
+
+.overwrap_off_animation{
+    animation-name:OverWrapoffAnime;
+    animation-duration:0.5s;
+    animation-fill-mode:forwards;
+}
+@keyframes OverWrapoffAnime{
+  0%{
+    opacity: 0.8;
+    height: 100vh;
+    background: #646464cc;
+  }
+
+  100%{
+    opacity: 0;
+    height: 0vh;
+    
+  }
+}

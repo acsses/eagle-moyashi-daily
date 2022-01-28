@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'post_list.css' %}">
 </head>
 <body style="background-color: #505050;">
-    <div id="overwrap" style="width: 100vw;height: 100vh;position: fixed;top: 0;left: 0;background: #646464cc;z-index: 2147483647;display: none;" >
+    <div id="overwrap" style="display: none;z-index: 2147483647;position: fixed;top: 0;left: 0;width: 100vw;background: #646464cc;overflow: hidden;">
         <div style="text-align: center;margin-top: 50px;display: flex;flex-direction: column;" >
           <div style="text-align: center;margin-bottom: 50px;width: 60px;height: 60px;margin: auto;" onclick="func3()" class="close">
             <?xml version="1.0" encoding="utf-8"?>
@@ -146,14 +146,21 @@
     <script>
         const sub = document.getElementById("sub");
         const overwrap = document.getElementById("overwrap");
-    
+        
         function func2() {
-
+          overwrap.classList.remove("overwrap_off_animation")
+          console.log(overwrap.style.height)
           overwrap.style.display = "block";
-          document.getElementById('input').focus();
+          overwrap.onanimationend = () => {
+            overwrap.style.height="100vh"
+          };
+          overwrap.classList.add("overwrap_animation")
         }
         function func3(){
-          overwrap.style.display = "none";
+          overwrap.onanimationend = () => {
+            overwrap.style.display="none"
+          };
+          overwrap.classList.add("overwrap_off_animation")
         }
         function func4(){
           textbox = document.getElementById("input")

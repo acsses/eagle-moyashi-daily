@@ -74,6 +74,9 @@ sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
   block.parentNode.classList.add("font_code")
   block.classList.add("font_code")
 })
+var margin=document.createElement("div")
+margin.style.height="20px"
+sub.appendChild(margin)
 MathJax.Hub.Configured();
 MathJax.Hub.Queue(["Typeset", MathJax.Hub, sub])
 
@@ -86,12 +89,20 @@ function func1() {
   }
   sub.style.height = sub.contentWindow.document.body.scrollHeight+delta+50+ "px";
 }
-function func2(){
+function func2() {
+  overwrap.classList.remove("overwrap_off_animation")
+  console.log(overwrap.style.height)
   overwrap.style.display = "block";
-  document.getElementById('input').focus();
+  overwrap.onanimationend = () => {
+    overwrap.style.height="100vh"
+  };
+  overwrap.classList.add("overwrap_animation")
 }
 function func3(){
-  overwrap.style.display = "none";
+  overwrap.onanimationend = () => {
+    overwrap.style.display="none"
+  };
+  overwrap.classList.add("overwrap_off_animation")
 }
 function func4(){
   textbox = document.getElementById("input")
