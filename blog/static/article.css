@@ -70,13 +70,14 @@
   .press_in_right p{
     display: none;
   }
-  .press_in_right {
-    flex-basis: 50%;
-    display: block;
-  }
+}
+.press_in_right {
+  flex-basis: 50%;
+  border-left: #5b5b5b solid 1px;
 }
 .press_in_left{
   justify-content: flex-end;
+  border-right: #5b5b5b solid 1px;
 }
 .press_in_left p{
   text-align: right;
