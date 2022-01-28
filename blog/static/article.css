@@ -67,10 +67,6 @@
   #discribe{
     display: none;
   }
-  .press_in_left p{
-    text-align: right;
-    margin-right: 10px;
-  }
   .press_in_right p{
     display: none;
   }
@@ -78,6 +74,10 @@
     flex-basis: 50%;
     display: block;
   }
+}
+.press_in_left p{
+  text-align: right;
+  margin-right: 10px;
 }
 #wide{
   display: block;
