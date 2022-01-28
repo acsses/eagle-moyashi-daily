@@ -91,13 +91,13 @@
 }
 @keyframes OverWrapAnime{
   0%{
-    opacity: 0;
+    background-color: rgba(100,100,100, 0.5);
     height: 0vh;
     background: #646464cc;
   }
 
   100%{
-    opacity: 0.8;
+    background-color: rgba(100,100,100, 0.5);
     height: 100vh;
     background: #646464cc;
   }
@@ -110,13 +110,13 @@
 }
 @keyframes OverWrapoffAnime{
   0%{
-    opacity: 0.8;
+    background-color: rgba(100,100,100, 0.5);
     height: 100vh;
     background: #646464cc;
   }
 
   100%{
-    opacity: 0;
+    background-color: rgba(100,100,100, 0.5);
     height: 0vh;
     
   }
