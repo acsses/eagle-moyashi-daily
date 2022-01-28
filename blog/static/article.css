@@ -75,9 +75,12 @@
     display: block;
   }
 }
+.press_in_left{
+  justify-content: flex-end;
+}
 .press_in_left p{
   text-align: right;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 #wide{
   display: block;
