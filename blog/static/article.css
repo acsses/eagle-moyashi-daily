@@ -76,13 +76,14 @@
 }
 .press_in_right {
   flex-basis: 50%;
+  margin-right: 10px;
+  margin-left: 0;
 }
 .press_in_left{
   justify-content: flex-end;
 }
 .press_in_left p{
   text-align: right;
-  margin-right: 10px;
 }
 #wide{
   display: block;
