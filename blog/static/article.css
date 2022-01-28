@@ -81,6 +81,8 @@
 }
 #wide{
   display: block;
+  width: 70%;
+  margin: auto;
 }
 .press{
   display: flex;
