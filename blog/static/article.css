@@ -46,11 +46,11 @@
     text-align: right;
   }
   .title{
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
     margin: auto;
     margin-top: 10px;
-    height: 40px;
+    height: 25px;
     border-bottom: #807f7f solid 2px;
   }
   .flexible{
