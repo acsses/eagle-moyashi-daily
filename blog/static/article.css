@@ -34,9 +34,6 @@
     flex-basis: 30%;
     height: fit-content;
   }
-  .press{
-    border-left: 2px solid #b9b9b9;
-  }
 }
 @media screen and (max-width: 800px){
   .icon{
@@ -75,9 +72,6 @@
   #discribe{
     display: none;
   }
-  .press{
-    display: flex;
-  }
   .press_in_left{
     justify-content: flex-end;
   }
@@ -97,6 +91,9 @@
     flex-basis: 50%;
     display: block;
   }
+}
+.press{
+  display: flex;
 }
 .hover_can#wide_in_after:hover{
   border: 2px solid #00c6d4;
