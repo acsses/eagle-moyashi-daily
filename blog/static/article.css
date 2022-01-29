@@ -161,7 +161,16 @@
   transition: 0.25s;
   background-color: #2e3033;
 }
+.hover_can#wide_latest:hover{
+  border: 2px solid #00c6d4;
+  transition: 0.25s;
+  background-color: #2e3033;
+}
 .hover_can#wide{
+  border-top: 1px solid #5b5b5b;
+  border-bottom: 1px solid #5b5b5b;
+}
+.hover_can#wide_latest{
   border-top: 1px solid #5b5b5b;
   border-bottom: 1px solid #5b5b5b;
 }
@@ -169,7 +178,14 @@
   color: #00c6d4;
   transition: 0.25s;
 }
+.hover_can#wide_latest:hover h1{
+  color: #00c6d4;
+  transition: 0.25s;
+}
 .hover_can#wide h1{
+  color: #ffffff;
+}
+.hover_can#wide_latest h1{
   color: #ffffff;
 }
 .twitter_icon:hover path{
