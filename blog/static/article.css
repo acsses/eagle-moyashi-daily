@@ -99,15 +99,6 @@
 .icon{
   border-radius:20px;
 }
-.press_in_right {
-  flex-basis: 50%;
-  margin-left: 10px;
-}
-.press_in_left{
-  justify-content: flex-end;
-  margin-left: 0px;
-  margin-right: 20px;
-}
 .press_in_left p{
   text-align: right;
 }
