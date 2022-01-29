@@ -1,4 +1,7 @@
 @media screen and (min-width: 800px){
+  #wide_article{
+    display: flex;
+  }
   .press_in_right {
     flex-basis: 50%;
     margin-left: 10px;
