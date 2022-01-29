@@ -171,7 +171,7 @@
       <div style="height: 5px;margin: 0;"></div>
       <h1 style="color: #ffffff; font-family:  'Noto Sans JP', sans-serif;text-align: left;margin-left: 5%;margin-top: 5%;">最近の記事</h1>
       {% for latest in latests %}
-      <div id="wide"class="hover_can"style="position: relative;z-index: 1;">
+      <div id="wide_latest"class="hover_can"style="position: relative;z-index: 1;">
         <a href="{% url 'link' blog_title=latest.id_url %}"style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;"></a>
         <img src="{% static latest.header_img %}" alt="" style="object-fit: cover;margin:5%;border-radius: 15px;"id="wide_in">
         <div style="display: block;flex-basis: 70%;">
