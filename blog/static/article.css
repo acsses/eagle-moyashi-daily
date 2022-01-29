@@ -41,7 +41,8 @@
     border-radius:3vw;
   }
   .date{
-    font-size: 3vw;
+    margin: 0;
+    height: 100%;
     overflow-wrap: break-word;
     text-align: right;
   }
