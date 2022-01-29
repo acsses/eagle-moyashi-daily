@@ -114,6 +114,7 @@
     display: none;
   }
   #wide_latest{
+    margin: auto;
     width: 70%;
     display: block;
   }
