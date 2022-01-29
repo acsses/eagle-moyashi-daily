@@ -78,8 +78,6 @@
 }
 .can_hover:hover{
     box-shadow: 0px 0px 4px;
-    border-top: 4px solid #00c6d4;
-    border-bottom:4px solid #00c6d4;
     background-color: #2e3033;
     transition: 0.25s;
 }
@@ -88,11 +86,13 @@
     transition: 0.25s;
 }
 .can_hover:hover .sumnail{
-    filter: brightness(50%);
+    filter: brightness(150%);
+    transform: scale(1.05);
 }
 .can_hover{
     border-top: 4px solid #444444;
     border-bottom: 4px solid #444444;
+    transition: 0.35s;
 }
 .can_hover h1{
     color: #ffffff;
@@ -107,6 +107,7 @@
     margin-bottom: 10px;
     border-radius: 15px;
     object-fit: cover;
+    transition: 0.25s;
 }
 #input{
     appearance: none;
