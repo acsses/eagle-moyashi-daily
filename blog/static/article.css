@@ -1,4 +1,14 @@
 @media screen and (min-width: 800px){
+  .press_in_right {
+    flex-basis: 50%;
+    margin-left: 10px;
+  }
+  .press_in_left{
+    flex-basis: 50%;
+    justify-content: flex-end;
+    margin-left: 0px;
+    margin-right: 20px;
+  }
   #wide{
     width: 70%;
   }
@@ -38,6 +48,14 @@
   }
 }
 @media screen and (max-width: 800px){
+  .press_in_right {
+    margin-left: 10px;
+  }
+  .press_in_left{
+    justify-content: flex-end;
+    margin-left: 0px;
+    margin-right: 20px;
+  }
   #wide{
     width: 90%;
   }
