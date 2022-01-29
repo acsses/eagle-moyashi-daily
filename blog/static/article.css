@@ -49,7 +49,7 @@
 }
 @media screen and (max-width: 800px){
   .press_in_right {
-    margin-left: 10px;
+    margin-left: 2.5px;
   }
   .press_in_right p{
     margin: 0;
@@ -58,7 +58,7 @@
   .press_in_left{
     justify-content: flex-end;
     margin-left: 0px;
-    margin-right: 20px;
+    margin-right: 2.5px;
   }
   #wide{
     width: 90%;
