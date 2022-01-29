@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>serch for {{ serch_word }}|Eagle moyashi daialy</title>
+    <title>serch for {{ serch_word }} | Eagle moyashi daialy</title>
     <link rel="shortcut icon" href="{% static 'icon.ico' %}">
     <link rel="stylesheet" href="{% static 'serch.css' %}">
 </head>
@@ -50,7 +50,7 @@
     {% for post in posts %}
     <div style="text-align: center;margin: auto;position: relative"class="flexible can_hover">
       <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;height:100%;width:100%;"></a>
-      <img src="{% static post.header_img %}" alt=""class="sumnail">
+      <img src="{% static post.header_img %}" alt="" class="sumnail">
           <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;"class="change">{{ post.title }}</h1>
           <div style="flex-basis: 50%;">
             <div style="height: 10px;"></div>

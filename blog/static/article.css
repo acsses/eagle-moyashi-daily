@@ -6,9 +6,6 @@
     flex-basis: 50%;
     margin-left: 10px;
   }
-  .press_in_right p{
-    color: #2e3033;
-  }
   .press_in_left{
     display: flex;
     flex-basis: 50%;
@@ -17,7 +14,7 @@
     margin-right: 20px;
   }
   .press_in_right p{
-    color: #2e3033;
+    color: #969696;
   }
   #wide{
     width: 90%;
@@ -29,12 +26,12 @@
   }
   .date{
     font-size: 20px;
-    color: #2e3033;
+    color: #969696;
   }
   .title{
     font-size: 60px;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
     height: 60px;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -71,15 +68,12 @@
   .press{
     justify-content: center;
   }
-  .press_in_right p{
-    color: #2e3033;
-  }
   .press_in_right {
     margin-left: 2.5px;
   }
   .press_in_right p{
     margin-left: 5px;
-    color: #2e3033;
+    color: #969696;
   }
   .press_in_left{
     display: none;
@@ -88,7 +82,7 @@
     width: 90%;
   }
   .date{
-    color: #2e3033;
+    color: #969696;
     height: 100%;
     line-height: 100%;
     overflow-wrap: break-word;
@@ -101,7 +95,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     height: 40px;
-    line-height: 30px;
+    line-height: 20px;
     border-bottom: #807f7f solid 2px;
   }
   .flexible{
