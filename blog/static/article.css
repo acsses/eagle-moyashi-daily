@@ -275,12 +275,13 @@
   background-color: #5b5b5b;
   width: 70%;
   height: 40px;
-  font-size: 40px;
+  font-size: 30px;
   color: #ffffff;
   text-align: center;
   font-family: 'Noto Sans JP', sans-serif;
   opacity: 1;
   border-radius: 20px;
+  transition: 0.25s;
 }
 #input:focus{
   border: #0070b5 solid 2px;
@@ -301,9 +302,10 @@
   appearance: none;
   opacity: 1;
   border-radius: 20px;
+  transition: 0.25s;
 }
 #button:focus{
-  border: #0070b5 solid 2px;
+  background-color: #0070b5;
 }
 .overwrap_animation{
   animation-name:OverWrapAnime;

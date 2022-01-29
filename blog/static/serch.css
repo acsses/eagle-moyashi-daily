@@ -56,16 +56,27 @@
         margin-right: 20px;
     }
 }
+.sumnail{
+    width: 90%;
+    height: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: 0.25s;
+}
 .can_hover:hover{
   box-shadow: 0px 0px 4px;
-    border-top: 4px solid #00c6d4;
-    border-bottom:4px solid #00c6d4;
     background-color: #2e3033;
     transition: 0.25s;
 }
 .can_hover{
     border-top: 4px solid #444444;
     border-bottom: 4px solid #444444;
+}
+.can_hover:hover .sumnail{
+    filter: brightness(150%) drop-shadow(0 3px 5px rgba(0,0,0,0.4));
+    transform: scale(1.05);
 }
 .close:hover path{
   fill: #232831;
@@ -86,17 +97,18 @@
     background-color: #5b5b5b;
     width: 70%;
     height: 40px;
-    font-size: 40px;
+    font-size: 30px;
     color: #ffffff;
     text-align: center;
     font-family: 'Noto Sans JP', sans-serif;
     opacity: 1;
     border-radius: 20px;
-  }
-  #input:focus{
+    transition: 0.25s;
+}
+#input:focus{
     border: #0070b5 solid 2px;
-  }
-  #button{
+}
+#button{
     border: none;
     outline: none;
     width: 35%;
@@ -112,10 +124,11 @@
     appearance: none;
     opacity: 1;
     border-radius: 20px;
-  }
-  #button:focus{
-    border: #0070b5 solid 2px;
-  }
+    transition: 0.25s;
+}
+#button:focus{
+    background-color: #0070b5;
+}
 .overwrap_animation{
     animation-name:OverWrapAnime;
     animation-duration:0.5s;
