@@ -51,6 +51,10 @@
   .press_in_right {
     margin-left: 10px;
   }
+  .press_in_right p{
+    margin: 0;
+    margin-left: 5px;
+  }
   .press_in_left{
     justify-content: flex-end;
     margin-left: 0px;
