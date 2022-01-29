@@ -23,10 +23,10 @@
             </svg>
           </div>
           <div style="text-align: center;margin-top: 60px;">
-            <input type="text" style="background-color: #5b5b5b;width: 70%;height: 40px;font-size: 40px;color: #ffffff;text-align: center;font-family: 'Noto Sans JP', sans-serif;opacity: 1;" id="input" placeholder="Serch...">
+            <input type="text" id="input" placeholder="Serch...">
           </div>
           <div>
-            <button type="button" style="width: 35%;height: 40px;margin-top: 30px;background-color: #5b5b5b;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;border-radius: 5px;-moz-appearance: none;-webkit-appearance: none;appearance: none;opacity: 1;" onclick="func4()">Serch</button>
+            <button type="button" onclick="func4()" id="button">Serch</button>
           </div>
         </div>
       </div>
@@ -123,22 +123,32 @@
         </div>
     </div>
     <div style="margin: 100px;"></div>
-    {% for post in posts %}
-    <div style="text-align: center;margin: auto;position: relative"class="flexible can_hover">
-        <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;height:100%;width:100%;"></a>
-        <img src="{% static post.header_img %}" alt="" style="width: 90%;height: 300px;margin-top: 10px;margin-bottom: 10px;border-radius: 15px;object-fit: cover;">
-            <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;"class="change">{{ post.title }}</h1>
-            <div style="flex-basis: 50%;">
-              <div style="height: 10px;"></div>
-              <p style="color: #898989;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;width: 100%;margin-bottom: 10px;">{{ post.created_date }}</p>
-            </div>
-            <div style="width: 90%;text-align: center;margin-top: 10px;margin: auto;">
-              <div style="height: 10px;"></div>
-              <p style="color: #898989;font-family: 'Noto Sans JP', sans-serif;text-align: left;flex-basis: 50%;margin-left: 10%;word-break: break-all;">{{ post.lead }}</p>
-            </div>
+    <div style="text-align: center;">
+    <div style="margin: auto;" id="space">
+      <div style="flex-basis: 70%;">
+        {% for post in posts %}
+        <div style="text-align: center;margin: auto;position: relative;width: 90%;"class="flexible can_hover">
+            <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;height:100%;width:100%;"></a>
+            <img src="{% static post.header_img %}" alt=""class="sumnail">
+                <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;"class="change">{{ post.title }}</h1>
+                <div style="flex-basis: 50%;">
+                  <div style="height: 10px;"></div>
+                  <p style="color: #898989;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;width: 100%;margin-bottom: 10px;">{{ post.created_date }}</p>
+                </div>
+                <div style="width: 90%;text-align: center;margin-top: 10px;margin: auto;">
+                  <div style="height: 10px;"></div>
+                  <p style="color: #898989;font-family: 'Noto Sans JP', sans-serif;text-align: left;flex-basis: 50%;margin-left: 10%;word-break: break-all;">{{ post.lead }}</p>
+                </div>
+        </div>
+        <div style="height: 100px;"></div>
+        {% endfor %}
+      </div>
+      <div style="flex-basis: 30%">
+        <a class="twitter-timeline" data-height="1000" data-theme="dark" href="https://twitter.com/night_moyashi?ref_src=twsrc%5Etfw">Tweets by night_moyashi</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
     </div>
-    <div style="height: 100px;"></div>
-    {% endfor %}
+    </div>
     <div style="margin: auto;text-align: center;"class="flexible"></div>
         <p style="color: #ffffff;font-family: 'Noto Sans JP', sans-serif;font-size: 30px;margin-right: 20px; text-align: right;border-bottom: 2px solid #b9b9b9">By  eagle moyashi</p>
         <p style="text-align: center;font-family: 'Noto Sans JP', sans-serif;">Copyright © 2021 Eagle moyashi. All Rights Reserved.</p>

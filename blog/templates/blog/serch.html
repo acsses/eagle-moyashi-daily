@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'serch.css' %}">
 </head>
 <body style="background-color: #505050;">
-    <div id="overwrap" style="width: 100vw;height: 100vh;position: fixed;top: 0;left: 0;background: #646464cc;z-index: 2147483647;display: none;" >
+    <div id="overwrap" style="width: 100vw;height: 100vh;position: fixed;top: 0;left: 0;background: #646464cc;z-index: 2147483647;display: none;overflow: hidden;" >
         <div style="text-align: center;margin-top: 50px;display: flex;flex-direction: column;" >
           <div style="text-align: center;margin-bottom: 50px;width: 60px;height: 60px;margin: auto;" onclick="func3()" class="close">
             <?xml version="1.0" encoding="utf-8"?>
@@ -23,10 +23,10 @@
             </svg>
           </div>
           <div style="text-align: center;margin-top: 60px;">
-            <input type="text" style="background-color: #5b5b5b;width: 70%;height: 40px;font-size: 40px;color: #ffffff;text-align: center;font-family: 'Noto Sans JP', sans-serif;" id="input" placeholder="Serch...">
+            <input type="text" id="input" placeholder="Serch...">
           </div>
           <div>
-            <button type="button" style="width: 35%;height: 40px;margin-top: 30px;background-color: #5b5b5b;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;border-radius: 5px;-moz-appearance: none;-webkit-appearance: none;appearance: none;" onclick="func4()">Serch</button>
+            <button type="button"  onclick="func4()" id="button">Serch</button>
           </div>
         </div>
       </div>

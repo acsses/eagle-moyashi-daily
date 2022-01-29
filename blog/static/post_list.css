@@ -15,6 +15,9 @@
   transition: 0.25s;
 }
 @media screen and (min-width: 801px){
+    .sumnail{
+        height: 300px;
+    }
     .change{
       font-size: 3vw;
     }
@@ -37,9 +40,16 @@
     .icon_wrap{
         margin-right: 100px;
     }
+    #space{
+        display: flex;
+        width: 70%;
+    }
 }
 @media screen and (max-width: 801px){
-  .change{
+    .sumnail{
+        height: 150px;
+    }
+    .change{
       font-size: 8vw;
     }
     .flexible{
@@ -61,6 +71,10 @@
     .icon_wrap{
         margin-right: 20px;
     }
+    #space{
+        display: block;
+        width: 90%;
+    }
 }
 .can_hover:hover{
     box-shadow: 0px 0px 4px;
@@ -73,6 +87,9 @@
     color: #00c6d4;
     transition: 0.25s;
 }
+.can_hover:hover .sumnail{
+    filter: brightness(50%);
+}
 .can_hover{
     border-top: 4px solid #444444;
     border-bottom: 4px solid #444444;
@@ -83,6 +100,50 @@
 .close:hover path{
   fill: #232831;
   transition: 0.25s;
+}
+.sumnail{
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+#input{
+    appearance: none;
+    border: none;
+    outline: none;
+    background-color: #5b5b5b;
+    width: 70%;
+    height: 40px;
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+    opacity: 1;
+    border-radius: 20px;
+}
+#input:focus{
+    border: #0070b5 solid 2px;
+}
+#button{
+    border: none;
+    outline: none;
+    width: 35%;
+    height: 40px;
+    margin-top: 30px;
+    background-color: #5b5b5b;
+    color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 1;
+    border-radius: 20px;
+}
+#button:focus{
+    border: #0070b5 solid 2px;
 }
 .overwrap_animation{
     animation-name:OverWrapAnime;

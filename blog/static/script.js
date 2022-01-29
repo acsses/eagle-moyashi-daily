@@ -142,6 +142,6 @@ function func_submit(){
   fd.append("inside",editor.getValue())
   fd.append("id",id.value)
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://eagle-moyashi-daily.herokuapp.com/new_page/");
+  xhr.open("POST", "http://127.0.0.1:8000/new_page/");
   xhr.send(fd);
 }

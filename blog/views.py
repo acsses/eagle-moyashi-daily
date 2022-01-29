@@ -70,7 +70,7 @@ def new_page(request):
         id=id+str(len(Post.objects.filter(id_url=id)))
     Post.objects.create(id_url=id, title=title, text=text,header_img = headerfile.name,published_date=datetime.now())
     print(Post.objects.all())
-    return redirect(id)
+    return redirect("/"+str(id)+"/")
 
 @user_passes_test(lambda u: u.is_superuser,login_url='/admin/login/?next=/add_page/')
 def add_page(request):
