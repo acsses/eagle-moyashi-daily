@@ -82,13 +82,13 @@
       <h1 style="color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="title">{{ post.title }}</h1>
       <div class="press">
         <div class="press_in_left">
-          <p style="line-height:0;color: #ffffff;font-family: 'Noto Sans JP', sans-serif;"class="date">{{ post.created_date|date:"Y m d" }}</p>
+          <p style="line-height:0;font-family: 'Noto Sans JP', sans-serif;"class="date">{{ post.created_date|date:"Y m d" }}</p>
         </div>
         <div style="display: flex;"class="press_in_right">
           <div>
             <img src="{% static 'icon.jpg' %}" alt=""style="margin:0;height:40px;width:40px;"class="icon">
           </div>
-          <p style="font-size: 20px;line-height:0;color: #ffffff;margin-left: 10px;font-family: 'Noto Sans JP', sans-serif;">Eagle moyashi</p>
+          <p style="font-size: 20px;line-height:0;margin-left: 10px;font-family: 'Noto Sans JP', sans-serif;">Eagle moyashi</p>
         </div>
       </div>
     </div>
