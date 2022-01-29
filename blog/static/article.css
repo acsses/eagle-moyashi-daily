@@ -56,9 +56,7 @@
     margin-left: 5px;
   }
   .press_in_left{
-    justify-content: flex-end;
-    margin-left: 0px;
-    margin-right: 2.5px;
+    display: none;
   }
   #wide{
     width: 90%;
