@@ -26,6 +26,7 @@
   }
   .date{
     font-size: 20px;
+    color: #2e3033;
   }
   .title{
     font-size: 60px;
@@ -76,6 +77,7 @@
     width: 90%;
   }
   .date{
+    color: #2e3033;
     height: 100%;
     line-height: 100%;
     overflow-wrap: break-word;
