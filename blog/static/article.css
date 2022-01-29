@@ -91,6 +91,7 @@
   margin: auto;
 }
 .press{
+  height: 40px;
   display: flex;
 }
 .hover_can#wide_in_after:hover{
