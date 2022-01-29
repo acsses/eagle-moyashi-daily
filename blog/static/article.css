@@ -56,7 +56,7 @@
     height: fit-content;
   }
   #wide_latest{
-    width: 70%;
+    width: 100%;
     display: flex;
   }
 }
