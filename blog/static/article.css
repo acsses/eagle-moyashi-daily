@@ -4,6 +4,7 @@
     margin-left: 10px;
   }
   .press_in_left{
+    display: flex;
     flex-basis: 50%;
     justify-content: flex-end;
     margin-left: 0px;
