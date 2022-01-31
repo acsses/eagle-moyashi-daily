@@ -105,8 +105,6 @@ editor.on('change',()=>{
   for(var img of img_list){
     check_url=img.src.split("/")[img.src.split("/").length-1]
     for (let i = 0; i < file_datas.getAll("file").length; i++) {
-      console.log(files.files[i].name)
-      console.log(check_url.trim())
       if(check_url.trim()==file_datas.getAll("file")[i].name.trim()){
         f(file_datas.getAll("file")[i],img.parentNode)
       }
