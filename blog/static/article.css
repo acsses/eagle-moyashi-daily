@@ -89,13 +89,12 @@
     text-align: right;
   }
   .title{
-    font-size: 40px;
+    font-size: 20px;
+    word-break: break-all;
     text-align: center;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 40px;
-    line-height: 20px;
     border-bottom: #807f7f solid 2px;
   }
   .flexible{
