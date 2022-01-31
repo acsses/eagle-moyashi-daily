@@ -24,7 +24,7 @@ body{
   width: 100%;
   text-align: center;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 20px;
   border: #ffffff solid 1px;
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 500;
@@ -32,16 +32,15 @@ body{
 }
 #file_upload:hover{
   box-sizing: border-box;
-  color: #25261f;
   background-color: #0184bb;
   border: #0184bb solid 1px;
 }
 #submit:hover{
-  color: #25261f;
   background-color: #0184bb;
   border: #0184bb solid 1px;
 }
 #input{
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 30px;
     margin: auto;
     color: white;
@@ -56,9 +55,10 @@ body{
     height: -webkit-calc(100% - 10px);
     flex-basis: 75%;
     width: 70%;
-    border-radius: 5px;
+    border-radius: 4vh;
     border: #ffffff 1px solid;
     padding: 0;
+    transition: 0.25s;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
@@ -66,12 +66,13 @@ body{
   border: #0184bb 1px solid;
 }
 #submit{
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 30px;
     color: white;
     background-color: #2e3033;
     border: #ffffff 1px solid;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 4vh;
     height: -webkit-calc(100% - 10px);
     flex-basis: 20%;
     width: 20%;
