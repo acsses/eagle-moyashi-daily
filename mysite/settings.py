@@ -141,7 +141,7 @@ STATICFILES_DIRS = (
 )
 
 
-DEBUG = True
+DEBUG = False
 
 try:
     from mysite.local_settings import *

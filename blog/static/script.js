@@ -13,14 +13,18 @@ var header_file=document.getElementById('header_file')
 var title=document.getElementById('input')
 var ele=document.getElementById("show")
 var id=document.getElementById('id')
+var file_datas=new FormData();
 header_file.addEventListener('change',()=>{
   f(header_file.files[0],header_img)
 })
 files.addEventListener('change',()=>{
-  file_colum.innerHTML=""
   for (let i = 0; i < files.files.length; i++) {
+    file_datas.append("file",files.files[i])
+  }
+  file_colum.innerHTML=""
+  for (let i = 0; i < file_datas.getAll("file").length; i++) {
     file_list=document.createElement('h3')
-    file_list.textContent=files.files[i].name
+    file_list.textContent=file_datas.getAll("file")[i].name
     file_list.classList.add("filelist")
     file_colum.appendChild(file_list)
   }
@@ -100,11 +104,11 @@ editor.on('change',()=>{
   var img_list=ele.getElementsByTagName("img")
   for(var img of img_list){
     check_url=img.src.split("/")[img.src.split("/").length-1]
-    for (let i = 0; i < files.files.length; i++) {
+    for (let i = 0; i < file_datas.getAll("file").length; i++) {
       console.log(files.files[i].name)
       console.log(check_url.trim())
-      if(check_url.trim()==files.files[i].name.trim()){
-        f(files.files[i],img.parentNode)
+      if(check_url.trim()==file_datas.getAll("file")[i].name.trim()){
+        f(file_datas.getAll("file")[i],img.parentNode)
       }
     }
     img.classList.add("img")
@@ -120,7 +124,6 @@ editor.on('change',()=>{
     hljs.highlightBlock(block)
     block.parentNode.classList.add("font_code")
     block.classList.add("font_code")
-
   })
   MathJax.Hub.Configured();
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
@@ -129,8 +132,8 @@ editor.on('change',()=>{
 function func_submit(){
   var fd = new FormData();
   fd.append("header_file",header_file.files[0])
-  for (let i = 0; i < files.files.length; i++) {
-    fd.append("images",files.files[i])
+  for (let i = 0; i < file_datas.getAll("file").length; i++) {
+    fd.append("images",file_datas.getAll("file")[i])
   }
   fd.append("title",title.value)
   var imgs=ele.getElementsByTagName("img")
