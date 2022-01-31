@@ -13,7 +13,7 @@
 .font_h1{
     margin: auto;
     width: 90%;
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     margin-top: 20px;
@@ -21,7 +21,7 @@
 .font_h2{
     margin: auto;
     width: 90%;
-    font-size: 26px;
+    font-size: 20px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     margin-top: 20px;
@@ -29,7 +29,7 @@
 .font_h3{
     margin: auto;
     width: 90%;
-    font-size: 13px;
+    font-size: 10px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 500;
     margin-top: 20px;
