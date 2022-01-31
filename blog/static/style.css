@@ -92,6 +92,8 @@ body{
 }
 .font{
     color: white;
+    width: 90%;
+    text-align: left;
 }
 .filelist{
   color: white;
