@@ -59,29 +59,29 @@
 }
 .font_ol{
     margin: auto;
-    width: 35vw;
+    width: 90%;
 }
 .font_ul{
     margin: auto;
-    width: 35vw;
+    width: 90%;
 }
 .table{
     margin: auto;
-    width: 35vw;
+    width: 90%;
     border-collapse:  collapse;
 }
 .t{
     border: #818896 1px solid;
 }
 .img{
-    width: 35vw;
+    width: 90%;
 }
 .font_code{
     font-family: 'Source Code Pro', monospace;
     font-weight: 500;
     font-size: 15px;
     margin: auto;
-    width: 35vw;
+    width: 90%;
     color: white;
     text-align: left !important;
 }
