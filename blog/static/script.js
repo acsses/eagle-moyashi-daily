@@ -14,7 +14,7 @@ var title=document.getElementById('input')
 var ele=document.getElementById("show")
 var id=document.getElementById('id')
 var file_datas=new FormData();
-var connection = new WebSocket("ws://" + window.location.host + "/ws/test");
+var connection = new WebSocket("wss://" + window.location.host + "/ws/test");
 connection.onmessage = function(e) {
   alert(e.data);
 }
