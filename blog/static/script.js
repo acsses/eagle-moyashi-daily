@@ -14,6 +14,10 @@ var title=document.getElementById('input')
 var ele=document.getElementById("show")
 var id=document.getElementById('id')
 var file_datas=new FormData();
+var connection = new WebSocket("ws://" + window.location.host + "/ws/test");
+connection.onmessage = function(e) {
+  alert(e.data);
+}
 header_file.addEventListener('change',()=>{
   f(header_file.files[0],header_img)
 })
@@ -123,6 +127,15 @@ editor.on('change',()=>{
     block.parentNode.classList.add("font_code")
     block.classList.add("font_code")
   })
+  var a_list=ele.getElementsByTagName("a")
+  for(var a of a_list){
+    link_card=document.createElement("div")
+    connection.onmessage = function(e) {
+      
+      console.log(JSON.parse(e.data))
+    }
+    connection.send(JSON.stringify({"data":a.href}))
+  }
   MathJax.Hub.Configured();
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
 })

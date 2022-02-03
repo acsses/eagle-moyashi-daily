@@ -35,7 +35,6 @@ class Post(models.Model):
     def lead(self):
         text=""
         try:
-            print(os.getcwd())
             f=self.text
             soup = BeautifulSoup(f, "html.parser")
             for sentence in soup.find_all("p"):
