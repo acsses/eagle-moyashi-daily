@@ -67,7 +67,7 @@ def new_page(request):
     headerfile=request.FILES["header_file"]
     fs = FileSystemStorage(location=settings.DEFAULT_FILE_STORAGE)
     fs.save(headerfile.name, headerfile)
-    client.upload_file("/app/static/"+headerfile.name,settings.AWS_STORAGE_BUCKET_NAME,headerfile.name)
+    client.upload_fileobj(headerfile,headerfile.name)
     for f in request.FILES.getlist("images"):
         fs.save(f.name, f)
     title=request.POST['title']
