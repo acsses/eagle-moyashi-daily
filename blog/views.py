@@ -72,6 +72,7 @@ def new_page(request):
     bucket.upload_fileobj(headerfile,headerfile.name)
     for f in request.FILES.getlist("images"):
         fs.save(f.name, f)
+        bucket.upload_fileobj(f,f.name)
     title=request.POST['title']
     text=request.POST['inside']
     id=hashlib.md5(title.encode()).hexdigest()

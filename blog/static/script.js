@@ -131,7 +131,6 @@ editor.on('change',()=>{
   for(var a of a_list){
     link_card=document.createElement("div")
     connection.onmessage = function(e) {
-      
       console.log(JSON.parse(e.data))
     }
     connection.send(JSON.stringify({"data":a.href}))
@@ -151,7 +150,7 @@ function func_submit(){
   for(var image of imgs){
     console.log(image.getAttribute('alt'))
     if(!(image.getAttribute('alt')=="image")){
-      image.src="/media/"+image.getAttribute('alt')
+      image.src="https://eagle-moyashi-daily.s3.ap-northeast-1.amazonaws.com/"+image.getAttribute('alt')
     }
   }
   fd.append("inside",editor.getValue())
