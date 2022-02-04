@@ -47,31 +47,14 @@ def serch(request):
 
     return render(request, 'blog/serch.html', {'posts': posts,'serch_word' : serch})
 
-def file(request):
-    if request.method == 'POST':
-        myfile = request.FILES.get('file')
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        uploaded_file_url = fs.url(filename)
-        return render(request,'blog/add_page.html')
-
 @csrf_exempt
 def new_page(request):
-    client = boto3.client(
-        's3',
-        aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
-        region_name='ap-northeast-1'
-    )
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(settings.AWS_STORAGE_BUCKET_NAME)
     headerfile=request.FILES["header_file"]
-    fs = FileSystemStorage(location=settings.DEFAULT_FILE_STORAGE)
-    fs.save(headerfile.name, headerfile)
-    bucket.upload_fileobj(headerfile,headerfile.name)
+    bucket.upload_fileobj(headerfile,headerfile.name,ExtraArgs={"ACL": "public-read"})
     for f in request.FILES.getlist("images"):
-        fs.save(f.name, f)
-        bucket.upload_fileobj(f,f.name)
+        bucket.upload_fileobj(f,f.name,ExtraArgs={"ACL": "public-read"})
     title=request.POST['title']
     text=request.POST['inside']
     id=hashlib.md5(title.encode()).hexdigest()
