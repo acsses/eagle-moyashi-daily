@@ -64,6 +64,8 @@ def new_page(request):
         aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
         region_name='ap-northeast-1'
     )
+    s3 = boto3.resource('s3')
+    bucket = s3.Bucket(settings.AWS_STORAGE_BUCKET_NAME)
     headerfile=request.FILES["header_file"]
     fs = FileSystemStorage(location=settings.DEFAULT_FILE_STORAGE)
     fs.save(headerfile.name, headerfile)
