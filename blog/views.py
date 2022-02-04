@@ -58,10 +58,10 @@ def file(request):
 @csrf_exempt
 def new_page(request):
     headerfile=request.FILES["header_file"]
-    fs = FileSystemStorage()
-    fs.save(headerfile.name, headerfile,location=settings.DEFAULT_FILE_STORAGE)
+    fs = FileSystemStorage(location=settings.DEFAULT_FILE_STORAGE)
+    fs.save(headerfile.name, headerfile)
     for f in request.FILES.getlist("images"):
-        fs.save(f.name, f,location=settings.DEFAULT_FILE_STORAGE)
+        fs.save(f.name, f)
     title=request.POST['title']
     text=request.POST['inside']
     id=hashlib.md5(title.encode()).hexdigest()
