@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import hashlib
 from datetime import datetime
-from ..mysite.settings import DEFAULT_FILE_STORAGE
+from django.conf import settings
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -59,9 +59,9 @@ def file(request):
 def new_page(request):
     headerfile=request.FILES["header_file"]
     fs = FileSystemStorage()
-    fs.save(headerfile.name, headerfile,location=DEFAULT_FILE_STORAGE)
+    fs.save(headerfile.name, headerfile,location=settings.DEFAULT_FILE_STORAGE)
     for f in request.FILES.getlist("images"):
-        fs.save(f.name, f,location=DEFAULT_FILE_STORAGE)
+        fs.save(f.name, f,location=settings.DEFAULT_FILE_STORAGE)
     title=request.POST['title']
     text=request.POST['inside']
     id=hashlib.md5(title.encode()).hexdigest()
