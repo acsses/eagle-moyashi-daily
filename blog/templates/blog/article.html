@@ -76,7 +76,7 @@
     </header>
     <div style="margin-top: 80px;"></div>
     <div style="text-align: center">
-      <img src="{% static post.header_img %}" alt=""style="border-radius: 15px 15px 15px 15px;object-fit: cover;margin-bottom:10px;box-shadow: 0px 0px 4px;height: 60vh;"class="flexible">
+      <img src="https://eagle-moyashi-daily.s3.ap-northeast-1.amazonaws.com/{{ post.header_img }}" alt=""style="border-radius: 15px 15px 15px 15px;object-fit: cover;margin-bottom:10px;box-shadow: 0px 0px 4px;height: 60vh;"class="flexible">
     </div>
     <div style="margin: auto;"id="space">
     <div style="flex-basis: 75%;">
@@ -177,7 +177,7 @@
         {% for latest in latests %}
         <a href="{% url 'link' blog_title=latest.id_url %}"style="height: 100%;text-decoration: none;">
         <div id="wide_latest"class="hover_can"style="z-index: 1;">
-          <img src="{% static latest.header_img %}" alt="" style="object-fit: cover;margin:5%;border-radius: 15px;"id="wide_in">
+          <img src="https://eagle-moyashi-daily.s3.ap-northeast-1.amazonaws.com/{{ latest.header_img }}" alt="" style="object-fit: cover;margin:5%;border-radius: 15px;"id="wide_in">
           <div style="display: block;flex-basis: 70%;">
             <div style="display: block;margin: 5%;">
               <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: left;;flex-basis: 50%;margin: 0;">{{ latest.title }}</h1>
