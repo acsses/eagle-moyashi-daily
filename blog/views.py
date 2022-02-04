@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 import hashlib
 from datetime import datetime
 from django.conf import settings
+import boto3
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -57,9 +58,16 @@ def file(request):
 
 @csrf_exempt
 def new_page(request):
+    client = boto3.client(
+        's3',
+        aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+        region_name='ap-northeast-1'
+    )
     headerfile=request.FILES["header_file"]
     fs = FileSystemStorage(location=settings.DEFAULT_FILE_STORAGE)
     fs.save(headerfile.name, headerfile)
+    client.upload_file(settings.STATIC_ROOT+headerfile.name,settings.AWS_STORAGE_BUCKET_NAME,headerfile.name)
     for f in request.FILES.getlist("images"):
         fs.save(f.name, f)
     title=request.POST['title']
