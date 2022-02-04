@@ -59,7 +59,7 @@ var img_list=sub.getElementsByTagName("img")
 for(var img of img_list){
   console.log(img.src)
   check_url=img.src.split("/")[img.src.split("/").length-1]
-  img.src= "/media/"+check_url
+  img.src= "https://eagle-moyashi-daily.s3.ap-northeast-1.amazonaws.com/"+check_url
   img.classList.add("img")
 }
 var code_list=sub.getElementsByTagName("code")
