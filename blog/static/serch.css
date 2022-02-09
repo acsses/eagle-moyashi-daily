@@ -14,7 +14,7 @@
   fill: #f10000;
   transition: 0.25s;
 }
-@media screen and (min-width: 801px){
+@media screen and (min-width: 1000px){
     .flexible{
         width: 50%;
     }
@@ -35,7 +35,7 @@
         margin-right: 100px;
     }
 }
-@media screen and (max-width: 801px){
+@media screen and (max-width: 1000px){
     .flexible{
         width: 100%;
     }

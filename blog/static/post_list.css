@@ -46,9 +46,7 @@
     }
 }
 @media screen and (max-width: 1000px){
-    .sumnail{
-        height: 150px;
-    }
+    
     .change{
       font-size: 8vw;
     }
