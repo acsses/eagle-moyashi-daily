@@ -14,7 +14,7 @@
   fill: #f10000;
   transition: 0.25s;
 }
-@media screen and (min-width: 801px){
+@media screen and (min-width: 1000px){
     .sumnail{
         height: 300px;
     }
@@ -45,7 +45,7 @@
         width: 70%;
     }
 }
-@media screen and (max-width: 801px){
+@media screen and (max-width: 1000px){
     .sumnail{
         height: 150px;
     }
