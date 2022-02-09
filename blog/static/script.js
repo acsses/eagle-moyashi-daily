@@ -14,9 +14,12 @@ var title=document.getElementById('input')
 var ele=document.getElementById("show")
 var id=document.getElementById('id')
 var file_datas=new FormData();
-var connection = new WebSocket("wss://" + window.location.host + "/ws/test");
+var connection = new WebSocket("ws://" + window.location.host + "/ws/test");
 connection.onmessage = function(e) {
   alert(e.data);
+}
+function func(data,a){
+  
 }
 header_file.addEventListener('change',()=>{
   f(header_file.files[0],header_img)
@@ -128,13 +131,47 @@ editor.on('change',()=>{
     block.classList.add("font_code")
   })
   var a_list=ele.getElementsByTagName("a")
+  func_list=[]
   for(var a of a_list){
-    link_card=document.createElement("div")
-    connection.onmessage = function(e) {
-      console.log(JSON.parse(e.data))
-    }
-    connection.send(JSON.stringify({"data":a.href}))
+    func_list.push(new Promise((resolve,reject) => {
+      connection.onmessage = function(e) {
+        console.log(JSON.parse(e.data))
+        var card=document.createElement("div")
+        card.classList.add("card")
+        var data=document.createElement("div")
+        data.classList.add("data_link")
+        var title=document.createElement("h2")
+        title.classList.add("title")
+        title.classList.add("text")
+        title.textContent=JSON.parse(e.data).send.title
+        data.appendChild(title)
+        var summary=document.createElement("p")
+        summary.classList.add("summary")
+        summary.classList.add("text")
+        summary.textContent=JSON.parse(e.data).send.descriptin
+        data.appendChild(summary)
+        var url=document.createElement("p")
+        url.classList.add("url")
+        url.classList.add("text")
+        url.textContent=JSON.parse(e.data).send.url
+        data.appendChild(url)
+        card.appendChild(data)
+        var img_div=document.createElement("div")
+        img_div.classList.add("img_div")
+        var img=document.createElement("img")
+        img.src=JSON.parse(e.data).send.image
+        img.classList.add("img_in")
+        img_div.appendChild(img)
+        card.appendChild(img_div)
+        a.innerHTML=""
+        a.appendChild(card)
+        a.classList.add("link")
+        resolve()
+      }
+      connection.send(JSON.stringify({"data":a.href}))
+    }))
   }
+  Promise.all(func_list)
   MathJax.Hub.Configured();
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
 })

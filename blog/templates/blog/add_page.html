@@ -53,9 +53,9 @@
                     <input type="file" name="header"style="display: none" id="header_file" >header image
                 </form>
             </label>
-            <div style="display: flex;flex-direction: column;flex-basis: 80%;width:100%;overflow: scroll;"id="file_colum">
+            <div style="display: flex;flex-direction: column;flex-basis: 90%;width:100%;overflow: scroll;height: 100%;"id="file_colum">
             </div>
-            <label id="file_upload" style="flex-basis: 5%;">
+            <label id="file_upload" style="flex-basis: 5%;margin: 0;">
                 <form enctype="multipart/form-data" method='post' action="">
                     {% csrf_token %}
                     <input type="file" name="file" id="images" style="display: none;" multiple/>image upload
