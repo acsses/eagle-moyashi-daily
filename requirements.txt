@@ -14,3 +14,4 @@ django-cleanup==5.2.0
 channels
 django-storages
 boto3
+requests
