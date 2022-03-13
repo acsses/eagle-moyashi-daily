@@ -126,6 +126,7 @@ body{
     margin-top: 20px;
 }
 .font_p{
+    width: 80%;
     margin: auto;
     font-size: 15px;
     font-family: 'Noto Sans JP', sans-serif;
