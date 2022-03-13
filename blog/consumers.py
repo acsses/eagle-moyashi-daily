@@ -32,7 +32,10 @@ class Consumer(JsonWebsocketConsumer):
             try:
                 image=soup.find("link",rel="shortcut icon")['href']
             except:
-                image=""
+                try:
+                    image=soup.find("link",rel="fluid-icon")['href']
+                except:
+                    image=""
             send_data={
                 "title":title,
                 "descriptin":description,
