@@ -141,26 +141,26 @@ editor.on('change',()=>{
         var data=document.createElement("div")
         data.classList.add("data_link")
         var title=document.createElement("h2")
-        title.classList.add("title")
+        title.classList.add("card_title")
         title.classList.add("text")
         title.textContent=JSON.parse(e.data).send.title
         data.appendChild(title)
         var summary=document.createElement("p")
-        summary.classList.add("summary")
+        summary.classList.add("card_summary")
         summary.classList.add("text")
         summary.textContent=JSON.parse(e.data).send.descriptin
         data.appendChild(summary)
         var url=document.createElement("p")
-        url.classList.add("url")
+        url.classList.add("card_url")
         url.classList.add("text")
         url.textContent=JSON.parse(e.data).send.url
         data.appendChild(url)
         card.appendChild(data)
         var img_div=document.createElement("div")
-        img_div.classList.add("img_div")
+        img_div.classList.add("card_img_div")
         var img=document.createElement("img")
         img.src=JSON.parse(e.data).send.image
-        img.classList.add("img_in")
+        img.classList.add("card_img_in")
         img_div.appendChild(img)
         card.appendChild(img_div)
         a.innerHTML=""

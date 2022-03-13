@@ -119,6 +119,7 @@ for(var a of a_list){
     connection.send(JSON.stringify({"data":a.href}))
   }))
 }
+Promise.all(func_list)
 var margin=document.createElement("div")
 margin.style.height="20px"
 sub.appendChild(margin)
