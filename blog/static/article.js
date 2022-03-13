@@ -4,7 +4,7 @@ const overwrap = document.getElementById("overwrap");
 sub.innerHTML=marked(hidden.value)
 var h1_list=sub.getElementsByTagName("h1")
 var connection = new WebSocket("wss://" + window.location.host + "/ws/test");
-connectionaddEventListener('open', (event) => {
+connection.addEventListener('open', (event) => {
   var a_list=sub.getElementsByTagName("a")
   func_list=[]
   for(var a of a_list){
