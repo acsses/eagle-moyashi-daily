@@ -20,11 +20,23 @@ class Consumer(JsonWebsocketConsumer):
         try:
             html= requests.get(data["data"])
             soup = BeautifulSoup(html.content, "html.parser")
-            print(soup.find("meta",property="og:title")['content'])
+            print()
+            try:
+                title=soup.find("meta",property="og:title")['content']
+            except:
+                title=""
+            try:
+                description=soup.find("meta",property="og:description")['content']
+            except:
+                description=""
+            try:
+                image=soup.find("link",rel="shortcut icon")['href']
+            except:
+                image=""
             send_data={
-                "title":soup.find("meta",property="og:title")['content'],
-                "descriptin":soup.find("meta",property="og:description")['content'],
-                "image":soup.find("link",rel="shortcut icon")['href']
+                "title":title,
+                "descriptin":description,
+                "image":image
             }
         except:
             send_data={}
