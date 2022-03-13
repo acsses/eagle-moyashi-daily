@@ -201,6 +201,7 @@ body{
 .title{
   width: 80%;
   margin: auto;
+  text-overflow: ellipsis;
 }
 .summary{
   width: 80%;
