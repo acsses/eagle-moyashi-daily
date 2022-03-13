@@ -63,7 +63,7 @@
   }
   #space{
     display:flex;
-    width: 70%;
+    width: 70vw;
   }
 }
 @media screen and (max-width: 1000px){
