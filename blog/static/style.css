@@ -173,7 +173,7 @@ body{
 }
 .card_link{
   box-sizing: border-box;
-  width: 100%;
+  width: 80%;
 }
 .card{
   height: 120px;
