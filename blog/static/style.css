@@ -172,8 +172,7 @@ body{
 }
 .card{
   height: 120px;
-  display: none;
-  width: 80%;
+  display: flex;
   margin: auto;
   border: rgba(255,255, 255, 0.5) solid 1px;
   border-radius: 10px;
