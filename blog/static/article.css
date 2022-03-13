@@ -63,7 +63,7 @@
   }
   #space{
     display:flex;
-    width: 70vw;
+    width: 70vw !important;
   }
 }
 @media screen and (max-width: 1000px){
