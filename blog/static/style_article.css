@@ -196,3 +196,36 @@
 span{
   border-left: 0em !important;
 }
+
+.card_title{
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card_summary{
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+  opacity: 0.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card_url{
+  width: 80%;
+  margin: auto;
+}
+.card_img_div{
+  flex-basis: 20%;
+  border-left: rgba(255,255, 255, 0.5) solid 0.5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+}
+.card_img_in{
+  height: 60%;
+  margin: auto;
+}

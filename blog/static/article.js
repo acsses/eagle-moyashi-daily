@@ -74,6 +74,47 @@ sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
   block.parentNode.classList.add("font_code")
   block.classList.add("font_code")
 })
+var a_list=ele.getElementsByTagName("a")
+func_list=[]
+for(var a of a_list){
+  func_list.push(new Promise((resolve,reject) => {
+    connection.onmessage = function(e) {
+      console.log(JSON.parse(e.data))
+      var card=document.createElement("div")
+      card.classList.add("card")
+      var data=document.createElement("div")
+      data.classList.add("data_link")
+      var title=document.createElement("h2")
+      title.classList.add("card_title")
+      title.classList.add("text")
+      title.textContent=JSON.parse(e.data).send.title
+      data.appendChild(title)
+      var summary=document.createElement("p")
+      summary.classList.add("card_summary")
+      summary.classList.add("text")
+      summary.textContent=JSON.parse(e.data).send.descriptin
+      data.appendChild(summary)
+      var url=document.createElement("p")
+      url.classList.add("card_url")
+      url.classList.add("text")
+      url.textContent=JSON.parse(e.data).send.url
+      data.appendChild(url)
+      card.appendChild(data)
+      var img_div=document.createElement("div")
+      img_div.classList.add("card_img_div")
+      var img=document.createElement("img")
+      img.src=JSON.parse(e.data).send.image
+      img.classList.add("card_img_in")
+      img_div.appendChild(img)
+      card.appendChild(img_div)
+      a.innerHTML=""
+      a.appendChild(card)
+      a.classList.add("card_link")
+      resolve()
+    }
+    connection.send(JSON.stringify({"data":a.href}))
+  }))
+}
 var margin=document.createElement("div")
 margin.style.height="20px"
 sub.appendChild(margin)
