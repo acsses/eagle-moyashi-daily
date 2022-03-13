@@ -20,6 +20,7 @@ class Consumer(JsonWebsocketConsumer):
         try:
             html= requests.get(data["data"])
             soup = BeautifulSoup(html.content, "html.parser")
+            print(soup.find("meta",property="og:title")['content'])
             send_data={
                 "title":soup.find("meta",property="og:title")['content'],
                 "descriptin":soup.find("meta",property="og:description")['content'],
