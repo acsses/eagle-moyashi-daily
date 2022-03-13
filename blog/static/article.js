@@ -3,6 +3,10 @@ const sub = document.getElementById("sub");
 const overwrap = document.getElementById("overwrap");
 sub.innerHTML=marked(hidden.value)
 var h1_list=sub.getElementsByTagName("h1")
+var connection = new WebSocket("wss://" + window.location.host + "/ws/test");
+connection.onmessage = function(e) {
+  alert(e.data);
+}
 for(var h1 of h1_list){
   h1.classList.add("font")
   h1.classList.add("font_h1")
