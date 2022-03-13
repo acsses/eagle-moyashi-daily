@@ -74,7 +74,7 @@ sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
   block.parentNode.classList.add("font_code")
   block.classList.add("font_code")
 })
-var a_list=ele.getElementsByTagName("a")
+var a_list=sub.getElementsByTagName("a")
 func_list=[]
 for(var a of a_list){
   func_list.push(new Promise((resolve,reject) => {
