@@ -140,6 +140,7 @@ editor.on('change',()=>{
     if(a.parentNode.classList.contains("twitter-tweet")){
       func_list.push(new Promise((resolve,reject) => {resolve()}))
     }
+    else if(a.parentNode.parentNode.classList.contains("twitter-tweet")){}
     else{
       func_list.push(new Promise((resolve,reject) => {
         connection.onmessage = function(e) {
