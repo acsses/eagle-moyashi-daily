@@ -77,8 +77,11 @@ editor.on('change',()=>{
   }
   var quote_list=ele.getElementsByTagName("blockquote")
   for(var quote of quote_list){
-    quote.classList.add("font")
-    quote.classList.add("quote")
+    if(quote.classList.contains("twitter-tweet")){}
+    else{
+      quote.classList.add("font")
+      quote.classList.add("quote")
+    }
   }
   var li_list=ele.getElementsByTagName("li")
   for(var li of li_list){
@@ -133,43 +136,46 @@ editor.on('change',()=>{
   var a_list=ele.getElementsByTagName("a")
   func_list=[]
   for(var a of a_list){
-    func_list.push(new Promise((resolve,reject) => {
-      connection.onmessage = function(e) {
-        console.log(JSON.parse(e.data))
-        var card=document.createElement("div")
-        card.classList.add("card")
-        var data=document.createElement("div")
-        data.classList.add("data_link")
-        var title=document.createElement("h2")
-        title.classList.add("card_title")
-        title.classList.add("text")
-        title.textContent=JSON.parse(e.data).send.title
-        data.appendChild(title)
-        var summary=document.createElement("p")
-        summary.classList.add("card_summary")
-        summary.classList.add("text")
-        summary.textContent=JSON.parse(e.data).send.descriptin
-        data.appendChild(summary)
-        var url=document.createElement("p")
-        url.classList.add("card_url")
-        url.classList.add("text")
-        url.textContent=JSON.parse(e.data).send.url
-        data.appendChild(url)
-        card.appendChild(data)
-        var img_div=document.createElement("div")
-        img_div.classList.add("card_img_div")
-        var img=document.createElement("img")
-        img.src=JSON.parse(e.data).send.image
-        img.classList.add("card_img_in")
-        img_div.appendChild(img)
-        card.appendChild(img_div)
-        a.innerHTML=""
-        a.appendChild(card)
-        a.classList.add("link")
-        resolve()
-      }
-      connection.send(JSON.stringify({"data":a.href}))
-    }))
+    if(a.parentNode.classList.contains("twitter-tweet")){}
+    else{
+      func_list.push(new Promise((resolve,reject) => {
+        connection.onmessage = function(e) {
+          console.log(JSON.parse(e.data))
+          var card=document.createElement("div")
+          card.classList.add("card")
+          var data=document.createElement("div")
+          data.classList.add("data_link")
+          var title=document.createElement("h2")
+          title.classList.add("card_title")
+          title.classList.add("text")
+          title.textContent=JSON.parse(e.data).send.title
+          data.appendChild(title)
+          var summary=document.createElement("p")
+          summary.classList.add("card_summary")
+          summary.classList.add("text")
+          summary.textContent=JSON.parse(e.data).send.descriptin
+          data.appendChild(summary)
+          var url=document.createElement("p")
+          url.classList.add("card_url")
+          url.classList.add("text")
+          url.textContent=JSON.parse(e.data).send.url
+          data.appendChild(url)
+          card.appendChild(data)
+          var img_div=document.createElement("div")
+          img_div.classList.add("card_img_div")
+          var img=document.createElement("img")
+          img.src=JSON.parse(e.data).send.image
+          img.classList.add("card_img_in")
+          img_div.appendChild(img)
+          card.appendChild(img_div)
+          a.innerHTML=""
+          a.appendChild(card)
+          a.classList.add("link")
+          resolve()
+        }
+        connection.send(JSON.stringify({"data":a.href}))
+      }))
+    }
   }
   Promise.all(func_list)
   MathJax.Hub.Configured();
