@@ -136,7 +136,7 @@ editor.on('change',()=>{
   var a_list=ele.getElementsByTagName("a")
   func_list=[]
   for(var a of a_list){
-    console.log(a.parentNode.classList)
+    console.log(a.parentNode.classList.contains("twitter-tweet"))
     if(a.parentNode.classList.contains("twitter-tweet")){
       func_list.push(new Promise((resolve,reject) => {resolve()}))
     }
