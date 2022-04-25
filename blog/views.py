@@ -8,8 +8,13 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import hashlib
 from datetime import datetime
-from django.conf import settings
+import os
 import boto3
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -57,7 +62,7 @@ def new_page(request):
     if len(Post.objects.filter(id_url=id))!=0:
         id=id+str(len(Post.objects.filter(id_url=id)))
     s3 = boto3.resource('s3')
-    bucket = s3.Bucket(settings.AWS_STORAGE_BUCKET_NAME)
+    bucket = s3.Bucket(AWS_STORAGE_BUCKET_NAME)
     headerfile=request.FILES["header_file"]
     bucket.upload_fileobj(headerfile,headerfile.name,ExtraArgs={"ACL": "public-read"})
     for f in request.FILES.getlist("images"):
