@@ -14,6 +14,18 @@
   fill: #f10000;
   transition: 0.25s;
 }
+.tag{
+    border-radius: 5px;
+    display: inline-block;
+    border: #00c6d4 1px solid;
+    font-size: 15pt;
+    color: #00c6d4;
+    font-family: 'Noto Sans JP', sans-serif;
+    flex-basis: 50%;
+    margin:auto;
+    width: auto;
+    margin-bottom: 10px;
+}
 @media screen and (min-width: 1000px){
     .sumnail{
         height: 300px;
@@ -45,8 +57,10 @@
         width: 70%;
     }
 }
-@media screen and (max-width: 1000px){
-    
+@media screen and (max-width: 1000px) and (min-width: 550px){
+    .sumnail{
+        height: 300px;
+    }
     .change{
       font-size: 8vw;
     }
@@ -77,6 +91,40 @@
         display: none;
     }
 }
+@media screen and (max-width: 550px){
+    .sumnail{
+        height: 200px;
+    }
+    .change{
+        font-size: 8vw;
+      }
+      .flexible{
+          width: 100%;
+      }
+      .min{
+          display: block;
+      }
+      .max_flex{
+          display: none;
+      }
+      .max{
+          display: none;
+      }
+      .icon{
+          width: 100px;
+          height: 100px;
+      }
+      .icon_wrap{
+          margin-right: 20px;
+      }
+      #space{
+          display: block;
+          width: 90%;
+      }
+      .twitter_column{
+          display: none;
+      }
+}
 .can_hover:hover{
     box-shadow: 0px 0px 4px;
     background-color: #2e3033;
@@ -89,6 +137,10 @@
 .can_hover:hover .sumnail{
     filter: brightness(150%) drop-shadow(0 3px 5px rgba(0,0,0,0.4));
     transform: scale(1.05);
+}
+.can_hover:hover .tag{
+    background-color: #00c6d4;
+    color: #444444;
 }
 .can_hover{
     border-top: 4px solid #444444;

@@ -133,6 +133,11 @@ editor.on('change',()=>{
     block.parentNode.classList.add("font_code")
     block.classList.add("font_code")
   })
+  var iframe_list=ele.getElementsByTagName("iframe")
+  for(var iframe of iframe_list){
+    iframe.width="90%"
+    iframe.height=(iframe.contentWindow.document.body.scrollHeight/iframe.contentWindow.document.body.scrollWidth)*0.9*parseInt(window.getComputedStyle(ele).width)+ "px";
+  }
   var a_list=ele.getElementsByTagName("a")
   func_list=[]
   for(var a of a_list){
@@ -188,6 +193,7 @@ editor.on('change',()=>{
 
 function func_submit(){
   var fd = new FormData();
+  var tag = document.getElementById("input_tags")
   fd.append("header_file",header_file.files[0])
   for (let i = 0; i < file_datas.getAll("file").length; i++) {
     fd.append("images",file_datas.getAll("file")[i])
@@ -202,7 +208,8 @@ function func_submit(){
   }
   fd.append("inside",editor.getValue())
   fd.append("id",id.value)
+  fd.append("tag","#"+tag.value)
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://eagle-moyashi-daily.herokuapp.com/new_page/");
+  xhr.open("POST", "http://127.0.0.1:8000/new_page/");
   xhr.send(fd);
 }

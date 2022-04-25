@@ -68,6 +68,11 @@ for(var code of code_list){
   code.parentNode.classList.add("font_code")
   code.classList.add("font_code")
 }
+var iframe_list=sub.getElementsByTagName("iframe")
+for(var iframe of iframe_list){
+  iframe.width="70%"
+  iframe.height=(iframe.contentWindow.document.body.scrollHeight/iframe.contentWindow.document.body.scrollWidth)*0.7*parseInt(window.getComputedStyle(sub).width)+ "px";
+}
 sub.querySelectorAll('pre code[class^="language-"]').forEach(block => {
   block.parentNode.classList.remove("font_code")
   block.classList.remove("font_code")

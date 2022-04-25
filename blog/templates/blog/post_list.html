@@ -130,8 +130,9 @@
         <div style="text-align: center;margin: auto;position: relative;width: 90%;"class="flexible can_hover">
             <a href="{% url 'link' blog_title=post.id_url %}"style="position: absolute;top: 0;left: 0;height:100%;width:100%;"></a>
             <img src="https://eagle-moyashi-daily.s3.ap-northeast-1.amazonaws.com/{{ post.header_img }}" alt=""class="sumnail">
-                <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;margin: 0;"class="change">{{ post.title }}</h1>
-                <div style="flex-basis: 50%;">
+                <h1 style="font-family: 'Noto Sans JP', sans-serif;text-align: center;margin: 0;"class="change">{{ post.title }}</h1>
+                <div class="tag"><span style="margin-right: 10px;margin-left: 10px;">{{ post.tag }}</span></div>
+                <div>
                   <div style="height: 10px;"></div>
                   <p style="color: #898989;font-family: 'Noto Sans JP', sans-serif;text-align: center;flex-basis: 50%;width: 100%;margin-bottom: 10px;">{{ post.created_date }}</p>
                 </div>

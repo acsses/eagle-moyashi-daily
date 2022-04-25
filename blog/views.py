@@ -49,18 +49,20 @@ def serch(request):
 
 @csrf_exempt
 def new_page(request):
+    title=request.POST['title']
+    text=request.POST['inside']
+    id=hashlib.md5(title.encode()).hexdigest()
+    tag=request.POST['tag']
+    print(tag)
+    if len(Post.objects.filter(id_url=id))!=0:
+        id=id+str(len(Post.objects.filter(id_url=id)))
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(settings.AWS_STORAGE_BUCKET_NAME)
     headerfile=request.FILES["header_file"]
     bucket.upload_fileobj(headerfile,headerfile.name,ExtraArgs={"ACL": "public-read"})
     for f in request.FILES.getlist("images"):
         bucket.upload_fileobj(f,f.name,ExtraArgs={"ACL": "public-read"})
-    title=request.POST['title']
-    text=request.POST['inside']
-    id=hashlib.md5(title.encode()).hexdigest()
-    if len(Post.objects.filter(id_url=id))!=0:
-        id=id+str(len(Post.objects.filter(id_url=id)))
-    Post.objects.create(id_url=id, title=title, text=text,header_img = headerfile.name,published_date=datetime.now())
+    Post.objects.create(id_url=id, title=title, text=text,tag=tag,header_img = headerfile.name,published_date=datetime.now())
     print(Post.objects.all())
     return redirect("http://localhost:8000/"+str(id)+"/")
 
