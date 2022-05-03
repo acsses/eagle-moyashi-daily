@@ -50,145 +50,158 @@ function f(file,parent){
   }
   reader.readAsDataURL(file);
 }
+var i=false
 editor.on('change',()=>{
   var ele=document.getElementById("show")
-  ele.innerHTML =""
-  var i=false
-  ele.innerHTML = marked(editor.getValue())
-  var h1_list=ele.getElementsByTagName("h1")
-  for(var h1 of h1_list){
-    h1.classList.add("font")
-    h1.classList.add("font_h1")
+  num=editor.getValue().match(/\r\n|\n/g)
+  n=0
+  if(num==null){
+    n=0
   }
-  var h2_list=ele.getElementsByTagName("h2")
-  for(var h2 of h2_list){
-    h2.classList.add("font")
-    h2.classList.add("font_h2")
+  else{
+    n=num.length
   }
-  var h3_list=ele.getElementsByTagName("h3")
-  for(var h3 of h3_list){
-    h3.classList.add("font")
-    h3.classList.add("font_h3")
-  }
-  var p_list=ele.getElementsByTagName("p")
-  for(var p of p_list){
-    p.classList.add("font")
-    p.classList.add("font_p")
-  }
-  var quote_list=ele.getElementsByTagName("blockquote")
-  for(var quote of quote_list){
-    if(quote.classList.contains("twitter-tweet")){}
-    else{
-      quote.classList.add("font")
-      quote.classList.add("quote")
+  if(i!=n){
+    ele.innerHTML =""
+    ele.innerHTML = marked(editor.getValue())
+    var h1_list=ele.getElementsByTagName("h1")
+    for(var h1 of h1_list){
+      h1.classList.add("font")
+      h1.classList.add("font_h1")
     }
-  }
-  var li_list=ele.getElementsByTagName("li")
-  for(var li of li_list){
-    li.classList.add("font")
-    li.classList.add("font_li")
-  }
-  var ol_list=ele.getElementsByTagName("ol")
-  for(var ol of ol_list){
-    ol.classList.add("font")
-    ol.classList.add("font_ol")
-  }
-  var ul_list=ele.getElementsByTagName("ul")
-  for(var ul of ul_list){
-    ul.classList.add("font")
-    ul.classList.add("font_ol")
-  }
-  var table_list=ele.getElementsByTagName("table")
-  for(var table of table_list){
-    table.classList.add("font")
-    table.classList.add("table")
-  }
-  var td_list=ele.getElementsByTagName("td")
-  for(var td of td_list){
-    td.classList.add("t")
-  }
-  var th_list=ele.getElementsByTagName("th")
-  for(var th of th_list){
-    th.classList.add("t")
-  }
-  var img_list=ele.getElementsByTagName("img")
-  for(var img of img_list){
-    check_url=img.src.split("/")[img.src.split("/").length-1]
-    for (let i = 0; i < file_datas.getAll("file").length; i++) {
-      if(check_url.trim()==file_datas.getAll("file")[i].name.trim()){
-        f(file_datas.getAll("file")[i],img.parentNode)
+    var h2_list=ele.getElementsByTagName("h2")
+    for(var h2 of h2_list){
+      h2.classList.add("font")
+      h2.classList.add("font_h2")
+    }
+    var h3_list=ele.getElementsByTagName("h3")
+    for(var h3 of h3_list){
+      h3.classList.add("font")
+      h3.classList.add("font_h3")
+    }
+    var p_list=ele.getElementsByTagName("p")
+    for(var p of p_list){
+      p.classList.add("font")
+      p.classList.add("font_p")
+    }
+    var quote_list=ele.getElementsByTagName("blockquote")
+    for(var quote of quote_list){
+      if(quote.classList.contains("twitter-tweet")){}
+      else{
+        quote.classList.add("font")
+        quote.classList.add("quote")
       }
     }
-    img.classList.add("img")
-  }
-  var code_list=ele.getElementsByTagName("code")
-  for(var code of code_list){
-    code.parentNode.classList.add("font_code")
-    code.classList.add("font_code")
-  }
-  ele.querySelectorAll('pre code[class^="language-"]').forEach(block => {
-    block.parentNode.classList.remove("font_code")
-    block.classList.remove("font_code")
-    hljs.highlightBlock(block)
-    block.parentNode.classList.add("font_code")
-    block.classList.add("font_code")
-  })
-  var iframe_list=ele.getElementsByTagName("iframe")
-  for(var iframe of iframe_list){
-    iframe.width="90%"
-    iframe.height=(iframe.contentWindow.document.body.scrollHeight/iframe.contentWindow.document.body.scrollWidth)*0.9*parseInt(window.getComputedStyle(ele).width)+ "px";
-  }
-  var a_list=ele.getElementsByTagName("a")
-  func_list=[]
-  for(var a of a_list){
-    console.log(a.parentNode.classList.contains("twitter-tweet"))
-    if(a.parentNode.classList.contains("twitter-tweet")){
-      func_list.push(new Promise((resolve,reject) => {resolve()}))
+    var li_list=ele.getElementsByTagName("li")
+    for(var li of li_list){
+      li.classList.add("font")
+      li.classList.add("font_li")
     }
-    else if(a.parentNode.parentNode.classList.contains("twitter-tweet")){}
-    else{
-      func_list.push(new Promise((resolve,reject) => {
-        connection.onmessage = function(e) {
-          console.log(JSON.parse(e.data))
-          var card=document.createElement("div")
-          card.classList.add("card")
-          var data=document.createElement("div")
-          data.classList.add("data_link")
-          var title=document.createElement("h2")
-          title.classList.add("card_title")
-          title.classList.add("text")
-          title.textContent=JSON.parse(e.data).send.title
-          data.appendChild(title)
-          var summary=document.createElement("p")
-          summary.classList.add("card_summary")
-          summary.classList.add("text")
-          summary.textContent=JSON.parse(e.data).send.descriptin
-          data.appendChild(summary)
-          var url=document.createElement("p")
-          url.classList.add("card_url")
-          url.classList.add("text")
-          url.textContent=JSON.parse(e.data).send.url
-          data.appendChild(url)
-          card.appendChild(data)
-          var img_div=document.createElement("div")
-          img_div.classList.add("card_img_div")
-          var img=document.createElement("img")
-          img.src=JSON.parse(e.data).send.image
-          img.classList.add("card_img_in")
-          img_div.appendChild(img)
-          card.appendChild(img_div)
-          a.innerHTML=""
-          a.appendChild(card)
-          a.classList.add("link")
-          resolve()
+    var ol_list=ele.getElementsByTagName("ol")
+    for(var ol of ol_list){
+      ol.classList.add("font")
+      ol.classList.add("font_ol")
+    }
+    var ul_list=ele.getElementsByTagName("ul")
+    for(var ul of ul_list){
+      ul.classList.add("font")
+      ul.classList.add("font_ol")
+    }
+    var table_list=ele.getElementsByTagName("table")
+    for(var table of table_list){
+      table.classList.add("font")
+      table.classList.add("table")
+    }
+    var td_list=ele.getElementsByTagName("td")
+    for(var td of td_list){
+      td.classList.add("t")
+    }
+    var th_list=ele.getElementsByTagName("th")
+    for(var th of th_list){
+      th.classList.add("t")
+    }
+    var img_list=ele.getElementsByTagName("img")
+    for(var img of img_list){
+      check_url=img.src.split("/")[img.src.split("/").length-1]
+      for (let i = 0; i < file_datas.getAll("file").length; i++) {
+        if(check_url.trim()==file_datas.getAll("file")[i].name.trim()){
+          f(file_datas.getAll("file")[i],img.parentNode)
         }
-        connection.send(JSON.stringify({"data":a.href}))
-      }))
+      }
+      img.classList.add("img")
     }
+    var code_list=ele.getElementsByTagName("code")
+    for(var code of code_list){
+      code.parentNode.classList.add("font_code")
+      code.classList.add("font_code")
+    }
+    ele.querySelectorAll('pre code[class^="language-"]').forEach(block => {
+      block.parentNode.classList.remove("font_code")
+      block.classList.remove("font_code")
+      hljs.highlightBlock(block)
+      block.parentNode.classList.add("font_code")
+      block.classList.add("font_code")
+    })
+    var iframe_list=ele.getElementsByTagName("iframe")
+    for(var iframe of iframe_list){
+      iframe.width="90%"
+      iframe.height=(iframe.contentWindow.document.body.scrollHeight/iframe.contentWindow.document.body.scrollWidth)*0.9*parseInt(window.getComputedStyle(ele).width)+ "px";
+    }
+    var a_list=ele.getElementsByTagName("a")
+    func_list=[]
+    for(var a of a_list){
+      console.log(a.parentNode.classList.contains("twitter-tweet"))
+      if(a.parentNode.classList.contains("twitter-tweet")){
+        func_list.push(new Promise((resolve,reject) => {resolve()}))
+      }
+      else if(a.parentNode.parentNode.classList.contains("twitter-tweet")){}
+      else{
+        func_list.push(new Promise((resolve,reject) => {
+          connection.onmessage = function(e) {
+            console.log(JSON.parse(e.data))
+            var card=document.createElement("div")
+            card.classList.add("card")
+            var data=document.createElement("div")
+            data.classList.add("data_link")
+            var title=document.createElement("h2")
+            title.classList.add("card_title")
+            title.classList.add("text")
+            title.textContent=JSON.parse(e.data).send.title
+            data.appendChild(title)
+            var summary=document.createElement("p")
+            summary.classList.add("card_summary")
+            summary.classList.add("text")
+            summary.textContent=JSON.parse(e.data).send.descriptin
+            data.appendChild(summary)
+            var url=document.createElement("p")
+            url.classList.add("card_url")
+            url.classList.add("text")
+            url.textContent=JSON.parse(e.data).send.url
+            data.appendChild(url)
+            card.appendChild(data)
+            var img_div=document.createElement("div")
+            img_div.classList.add("card_img_div")
+            var img=document.createElement("img")
+            img.src=JSON.parse(e.data).send.image
+            img.classList.add("card_img_in")
+            img_div.appendChild(img)
+            card.appendChild(img_div)
+            a.innerHTML=""
+            a.appendChild(card)
+            a.classList.add("link")
+            resolve()
+          }
+          connection.send(JSON.stringify({"data":a.href}))
+        }))
+      }
+    }
+    Promise.all(func_list)
+    MathJax.Hub.Configured();
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
+    i=n
+  }else{
   }
-  Promise.all(func_list)
-  MathJax.Hub.Configured();
-  MathJax.Hub.Queue(["Typeset", MathJax.Hub, ele]);
+  
 })
 
 function func_submit(){
