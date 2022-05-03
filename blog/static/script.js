@@ -18,10 +18,20 @@ var connection = new WebSocket("wss://" + window.location.host + "/ws/test");
 connection.onmessage = function(e) {
   alert(e.data);
 }
-function func(data,a){
-  
-}
 header_file.addEventListener('change',()=>{
+  list=header_img.getElementsByTagName("img")
+  if(list.length!=0){
+    for(var l of list){
+      l.remove()
+    }
+  }
+  list_2=header_img.getElementsByTagName("h1")
+  if(list_2.length!=0){
+    for(var m of list){
+      m.remove()
+    }
+  }
+  header_img.style.border="0"
   f(header_file.files[0],header_img)
 })
 files.addEventListener('change',()=>{
@@ -42,7 +52,7 @@ function f(file,parent){
   reader.onload = function (e) {
     var imageUrl = e.target.result; // URLはevent.target.resultで呼び出せる
     var img = document.createElement("img"); // img要素を作成
-    img.classList.add("img")
+    img.classList.add("img_h")
     img.src = imageUrl; // URLをimg要素にセット
     img.alt=file.name
     parent.innerHTML=""
