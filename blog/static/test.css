@@ -368,3 +368,7 @@ button{
   appearance: none;
   outline: none;
 }
+#tag{
+  color: white;
+  font-family: 'Noto Sans JP', sans-serif;
+}
