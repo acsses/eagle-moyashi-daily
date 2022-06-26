@@ -5,80 +5,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js'></script>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>add page | Eagle moyashi daialy</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
+    <link rel="stylesheet" href="{% static 'micromodal.css' %}">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="{% static 'icon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-          skipStartupTypeset: true, // ページロード時のmathjax発動禁止
-          extensions: ["tex2jax.js"],
-          jax: ["input/TeX", "output/HTML-CSS"],
           tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
             displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
             processEscapes: true
-          },
-          "HTML-CSS": {
-            availableFonts: ["TeX"]
           }
         });
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured"></script>
-    <script>hljs.highlightAll();</script>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+        </script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'test.css' %}">
 </head>
 <body>
-    <input type="hidden" value="{{ id }}" id="id"></form>
     <header id="header">
-        <div style="height: 2.5vh;width: 100%;"></div>
-        <div id="form" style="display: flex;">
-            <input type="text"id="input">
-            <input type="button" value="save&publish" id="submit" onclick="func_submit()">
-        </div>
-        <div style="height: 2.5vh;width: 100%;"></div>
+        <a href="https://eagle-moyashi-daily.herokuapp.com/" style="text-decoration: none;">
+          <p style="font-size: 25px;margin-left: 20px;" class="text">eagle moyashi</p>
+        </a>
+        <div id="submit" class="text" data-micromodal-trigger="modal-1" role="button">submit</div>
     </header>
-    <div id="tags">
-        <input type="text"id="input_tags">
-        <div style="height: 2.5vh;width: 100%;"></div>
-    </div>
-    <div style="display: flex;height: 77.5vh;">
-        <div style="flex-basis: 15%; display: flex;flex-direction: column;align-items: flex-end;" id="files">
-            <label id="file_upload" style="flex-basis: 5%;margin: 0;">
-                <form enctype="multipart/form-data" method='post' action="">
-                    {% csrf_token %}
-                    <input type="file" name="file" id="images" style="display: none;" multiple/>image upload
-                </form>
-            </label>
-            <div style="display: flex;flex-direction: column;flex-basis: 90%;width:100%;overflow: scroll;height: 100%;"id="file_colum">
-            </div>
+    <div style="height: 100px;"></div>
+    <form method=“POST” enctype=“multipart/form-data” style="width: 49vw;height: 20vh;margin: auto;margin-top: 5vh;margin-bottom: 5vh;">
+        <div id="header_img" style="width: 100%;height: 20vh;">
+            <h1 class="text">画像を選択してください</h1>
+            <input type="file" name="header" id="header_file" >
         </div>
-        <div style="display: flex;flex-basis: 85%;">
-            <div id="editor"style="height: 100%;"></div>
-            <div id="show_all"style="height: 100%;">
-                <form method=“POST” enctype=“multipart/form-data” style="width: 90%;height: 20vh;margin: auto;">
-                    <div id="header_img" style="width: 90%;height: 20vh;">
-                        {% csrf_token %}
-                        <h1 id="title">画像を選択してください</h1>
-                        <input type="file" name="header" id="header_file" >
-                    </div>
-                </form>
-                <div id="show">
-                </div>
+    </form>
+    <form method=“POST” enctype=“multipart/form-data” style="height: 10vh;margin: auto;margin-top: 5vh;margin-bottom: 5vh;text-align: center;">
+        <input type="text title" name="title" id="title" class="text">
+    </form>
+    <div id="parent">
+        <div style="height: 10px;"></div>
+        <div style="width: 80%;margin:auto;">
+            <div id="space">
+
             </div>
+            <div class="textarea" role="textbox" contenteditable autofocus></div>
+            <div style="height: 10px;"></div>
         </div>
     </div>
-    <script src="{% static 'script.js' %}"></script>
+    <div style="height: 100px;"></div>
+    <!-- ここからモーダルエリアです。 -->
+    <div id="modal-1" aria-hidden="true" class="micromodal-slide modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+          <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title" >
+            <header class="modal__header">
+              <h2 id="modal-1-title" class="modal__title">公開設定</h2>
+              <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <div id="modal-1-content" class="modal__content">
+                <form action="">
+                    <input type="text" class="tag" id="tag" placeholder="タグを設定してください">
+                </form>
+                <div id="submit_button" class="text"role="button">submit</div>
+            </div>
+            <footer class="modal__footer"></footer>
+          </div>
+        </div>
+      </div>
+    <script src="{% static 'test.js' %}"></script>
 </body>
 </html>
