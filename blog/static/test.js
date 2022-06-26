@@ -273,6 +273,6 @@ submitbutton.addEventListener("click",()=>{
   fd.append("tag","#"+tag.value)
   console.log(fd)
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://eagle-moyashi-daily.herokuapp.com//new_page/");
+  xhr.open("POST", "https://eagle-moyashi-daily.herokuapp.com/new_page/");
   xhr.send(fd);
 })
